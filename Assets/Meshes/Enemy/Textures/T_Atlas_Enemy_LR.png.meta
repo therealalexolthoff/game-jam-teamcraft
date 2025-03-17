@@ -120,6 +120,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -334,7 +347,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      T_Atlas_Enemy_LR_0: -1256764480489529389
+      T_Atlas_Enemy_LR_1: -5617381683453666441
+      T_Atlas_Enemy_LR_2: 1999609215820930600
+      T_Atlas_Enemy_LR_3: 415316711807319749
+      T_Atlas_Enemy_LR_4: -392643389516674263
+      T_Atlas_Enemy_LR_5: 6525712506770572538
+      T_Atlas_Enemy_LR_6: 3144916549480140814
+      T_Atlas_Enemy_LR_7: -9166401494782188083
+      T_Atlas_Enemy_LR_8: -5843162376752035490
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
