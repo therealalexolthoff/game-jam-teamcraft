@@ -3,7 +3,17 @@ guid: 6290434e8b54f624c8bfa925f86156e4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Atlas_AltTextures
+    second: {fileID: 2100000, guid: f7dd15355619992449dd214be5989b4d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Atlas_PlayerShip
+    second: {fileID: 2100000, guid: 59dd1aa884f9533419e8cfdcefe064d1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
