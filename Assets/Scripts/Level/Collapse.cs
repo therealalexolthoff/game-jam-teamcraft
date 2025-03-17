@@ -31,9 +31,11 @@ public class Collapse : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other);
         if (other.CompareTag("Player"))
         {
             //End the level in a loss if the player touches the collapse
+            Debug.Log("You Lose!");
             GameManager.Instance.EndLevel(false);
         }
         else if (other.CompareTag("Enemy"))

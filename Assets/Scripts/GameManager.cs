@@ -71,6 +71,6 @@ public class GameManager : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
             input += Vector2.right;
 
-        Camera.main.transform.position += (Vector3)input * Time.deltaTime;
+        Camera.main.transform.position += 1.5f * Time.deltaTime * (Vector3)input;
     }
 }

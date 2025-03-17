@@ -39,7 +39,7 @@ public class Planet : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
             input += Vector2.right;
 
-        planetGraphic.localPosition += PARALLAX_MULT_INTERNAL * parallaxMultiplier * (Vector3)input;
+        planetGraphic.localPosition += PARALLAX_MULT_INTERNAL * parallaxMultiplier * (0.5f + distanceScale / 2) * (Vector3)input;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -47,6 +47,7 @@ public class Planet : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //End the level in a win if the player reaches the planet
+            Debug.Log("You Win!");
             GameManager.Instance.EndLevel(true);
         }
     }
