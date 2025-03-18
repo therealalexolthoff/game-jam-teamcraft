@@ -29,11 +29,16 @@ public class GameManager : MonoBehaviour
 
     //Public
     public int LevelSize => levelSize;
-    public PlayerController Player { get; set; }
+    public Transform Player { get; set; }
 
     //Private
     //Add in later once enemies are implemented
     //private Dictionary<int, EnemyClass> enemyList = new();
+
+    private void Awake()
+    {
+        Player = FindFirstObjectByType<PlayerMovement>().transform;
+    }
 
     /// <summary>
     /// Ends the level. If the level ends in a loss, restart.

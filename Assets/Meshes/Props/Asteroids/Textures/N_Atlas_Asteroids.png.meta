@@ -1,44 +1,40 @@
 fileFormatVersion: 2
-guid: a50429428608fce4bac3f48b1bfecf1c
+guid: ea47bdd9daf693d41b9fc8cd47207a71
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -498998997849862143
-    second: T_Atlas_Ship_LR_P2_0
+      213: 5772969646384392290
+    second: N_Atlas_Asteroids_0
   - first:
-      213: 3330347848262701176
-    second: T_Atlas_Ship_LR_P2_1
+      213: 6950860505352911492
+    second: N_Atlas_Asteroids_1
   - first:
-      213: 1043909563666152501
-    second: T_Atlas_Ship_LR_P2_2
+      213: -2310120947621994979
+    second: N_Atlas_Asteroids_2
   - first:
-      213: 668327956247309178
-    second: T_Atlas_Ship_LR_P2_3
+      213: -6221001584218903770
+    second: N_Atlas_Asteroids_3
   - first:
-      213: 7589632083145907675
-    second: T_Atlas_Ship_LR_P2_4
+      213: 1642471553191710796
+    second: N_Atlas_Asteroids_4
   - first:
-      213: 7353803987434428876
-    second: T_Atlas_Ship_LR_P2_5
+      213: 5154132127547748559
+    second: N_Atlas_Asteroids_5
   - first:
-      213: 1441197800710099971
-    second: T_Atlas_Ship_LR_P2_6
+      213: -6241782941739910498
+    second: N_Atlas_Asteroids_6
   - first:
-      213: 6928657957026969983
-    second: T_Atlas_Ship_LR_P2_7
+      213: -4794064402896475129
+    second: N_Atlas_Asteroids_7
   - first:
-      213: -6512027122867263090
-    second: T_Atlas_Ship_LR_P2_8
+      213: 2378330587948563231
+    second: N_Atlas_Asteroids_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
-<<<<<<< Updated upstream:Assets/Meshes/Ships/Textures/T_Atlas_Ship_LR_P2.png.meta
-    sRGBTexture: 0
-=======
     sRGBTexture: 1
->>>>>>> Stashed changes:Assets/Meshes/Ships/Player/Textures/T_Atlas_Ship_LR_P2.png.meta
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -85,11 +81,7 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
-<<<<<<< Updated upstream:Assets/Meshes/Ships/Textures/T_Atlas_Ship_LR_P2.png.meta
-  textureType: 1
-=======
   textureType: 0
->>>>>>> Stashed changes:Assets/Meshes/Ships/Player/Textures/T_Atlas_Ship_LR_P2.png.meta
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -145,13 +137,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: T_Atlas_Ship_LR_P2_0
+      name: N_Atlas_Asteroids_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 722
-        width: 300
-        height: 300
+        x: 144
+        y: 1366
+        width: 587
+        height: 587
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 10012e52e033319f0800000000000000
-      internalID: -498998997849862143
+      spriteID: 268aadf8e45bd1050800000000000000
+      internalID: 5772969646384392290
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_Atlas_Ship_LR_P2_1
+      name: N_Atlas_Asteroids_1
       rect:
         serializedVersion: 2
-        x: 345
-        y: 722
-        width: 301
-        height: 301
+        x: 754
+        y: 1366
+        width: 587
+        height: 587
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8705f2a19b5c73e20800000000000000
-      internalID: 3330347848262701176
+      spriteID: 48a3ad86dca667060800000000000000
+      internalID: 6950860505352911492
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_Atlas_Ship_LR_P2_2
+      name: N_Atlas_Asteroids_2
       rect:
         serializedVersion: 2
-        x: 680
-        y: 725
-        width: 298
-        height: 298
+        x: 1364
+        y: 1366
+        width: 587
+        height: 587
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,20 +196,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 53c34ff9736bc7e00800000000000000
-      internalID: 1043909563666152501
+      spriteID: d1e5dc8dc3dc0ffd0800000000000000
+      internalID: -2310120947621994979
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_Atlas_Ship_LR_P2_3
+      name: N_Atlas_Asteroids_3
       rect:
         serializedVersion: 2
-        x: 11
-        y: 397
-        width: 299
-        height: 299
+        x: 145
+        y: 735
+        width: 587
+        height: 587
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,20 +218,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7b65993cb0664900800000000000000
-      internalID: 668327956247309178
+      spriteID: 62b6d79f4009aa9a0800000000000000
+      internalID: -6221001584218903770
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_Atlas_Ship_LR_P2_4
+      name: N_Atlas_Asteroids_4
       rect:
         serializedVersion: 2
-        x: 345
-        y: 398
-        width: 299
-        height: 298
+        x: 755
+        y: 735
+        width: 587
+        height: 587
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,20 +240,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bddd1d30b2ac35960800000000000000
-      internalID: 7589632083145907675
+      spriteID: c401da9ec2b3bc610800000000000000
+      internalID: 1642471553191710796
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_Atlas_Ship_LR_P2_5
+      name: N_Atlas_Asteroids_5
       rect:
         serializedVersion: 2
-        x: 679
-        y: 397
-        width: 299
-        height: 299
+        x: 1365
+        y: 735
+        width: 587
+        height: 587
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,20 +262,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cc951e2b3c5fd0660800000000000000
-      internalID: 7353803987434428876
+      spriteID: fc079ebbcd7278740800000000000000
+      internalID: 5154132127547748559
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_Atlas_Ship_LR_P2_6
+      name: N_Atlas_Asteroids_6
       rect:
         serializedVersion: 2
-        x: 11
-        y: 53
-        width: 302
-        height: 302
+        x: 145
+        y: 104
+        width: 587
+        height: 587
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,20 +284,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 304566293c9200410800000000000000
-      internalID: 1441197800710099971
+      spriteID: e9aff702c7bb069a0800000000000000
+      internalID: -6241782941739910498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_Atlas_Ship_LR_P2_7
+      name: N_Atlas_Asteroids_7
       rect:
         serializedVersion: 2
-        x: 347
-        y: 56
-        width: 299
-        height: 299
+        x: 755
+        y: 104
+        width: 587
+        height: 587
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -314,20 +306,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f79b6cac3b9872060800000000000000
-      internalID: 6928657957026969983
+      spriteID: 70ca20b53df087db0800000000000000
+      internalID: -4794064402896475129
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_Atlas_Ship_LR_P2_8
+      name: N_Atlas_Asteroids_8
       rect:
         serializedVersion: 2
-        x: 678
-        y: 54
-        width: 300
-        height: 300
+        x: 1365
+        y: 104
+        width: 587
+        height: 587
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -336,8 +328,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e89a9cd75d1a0a5a0800000000000000
-      internalID: -6512027122867263090
+      spriteID: f1bbe1d9117810120800000000000000
+      internalID: 2378330587948563231
       vertices: []
       indices: 
       edges: []
@@ -356,15 +348,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      T_Atlas_Ship_LR_P2_0: -498998997849862143
-      T_Atlas_Ship_LR_P2_1: 3330347848262701176
-      T_Atlas_Ship_LR_P2_2: 1043909563666152501
-      T_Atlas_Ship_LR_P2_3: 668327956247309178
-      T_Atlas_Ship_LR_P2_4: 7589632083145907675
-      T_Atlas_Ship_LR_P2_5: 7353803987434428876
-      T_Atlas_Ship_LR_P2_6: 1441197800710099971
-      T_Atlas_Ship_LR_P2_7: 6928657957026969983
-      T_Atlas_Ship_LR_P2_8: -6512027122867263090
+      N_Atlas_Asteroids_0: 5772969646384392290
+      N_Atlas_Asteroids_1: 6950860505352911492
+      N_Atlas_Asteroids_2: -2310120947621994979
+      N_Atlas_Asteroids_3: -6221001584218903770
+      N_Atlas_Asteroids_4: 1642471553191710796
+      N_Atlas_Asteroids_5: 5154132127547748559
+      N_Atlas_Asteroids_6: -6241782941739910498
+      N_Atlas_Asteroids_7: -4794064402896475129
+      N_Atlas_Asteroids_8: 2378330587948563231
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
