@@ -24,9 +24,6 @@ public class PlayerController : MonoBehaviour
 
     public void Awake()
     {
-        //New code
-        GameManager.Instance.Player = this;
-
         SetProjectile(projectilePrefab);
     }
 

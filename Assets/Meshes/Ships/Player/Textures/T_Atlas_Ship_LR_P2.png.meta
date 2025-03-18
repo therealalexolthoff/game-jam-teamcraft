@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0903db812467df844a5cf2b011048695
+guid: a50429428608fce4bac3f48b1bfecf1c
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -33,8 +33,12 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
+<<<<<<< Updated upstream:Assets/Meshes/Ships/Textures/T_Atlas_Ship_LR_P2.png.meta
+    sRGBTexture: 0
+=======
     sRGBTexture: 1
+>>>>>>> Stashed changes:Assets/Meshes/Ships/Player/Textures/T_Atlas_Ship_LR_P2.png.meta
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -79,9 +83,13 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 1
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
-  textureType: 8
+<<<<<<< Updated upstream:Assets/Meshes/Ships/Textures/T_Atlas_Ship_LR_P2.png.meta
+  textureType: 1
+=======
+  textureType: 0
+>>>>>>> Stashed changes:Assets/Meshes/Ships/Player/Textures/T_Atlas_Ship_LR_P2.png.meta
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1

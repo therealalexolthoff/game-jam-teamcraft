@@ -21,7 +21,7 @@ public class Planet : MonoBehaviour
     private void Update()
     {
         //The percentage of the level the player has currently traversed (from 0 to 1)
-        float distanceScale = Mathf.Clamp01(1 - (transform.position.y - GameManager.Instance.Player.transform.position.y) / GameManager.Instance.LevelSize);
+        float distanceScale = Mathf.Clamp01(1 - (transform.position.y - GameManager.Instance.Player.position.y) / GameManager.Instance.LevelSize);
 
         //Scale up the planet graphic as the player gets closer
         float scale = Mathf.Lerp(planetMinScale, planetMaxScale, distanceScale);
