@@ -10,7 +10,7 @@ public class ShootComponent : MonoBehaviour
     [SerializeField] private float spawnBulletDistance = 1.75f;
 
     [Tooltip("The force to apply on the y-axis to the Bullet Prefab")]
-    [SerializeField] private float bulletVerticalForce = 5.0f;
+    [SerializeField] private float bulletVerticalForce = 25.0f;
 
     // Update is called once per frame
     private void Update()
@@ -21,7 +21,7 @@ public class ShootComponent : MonoBehaviour
             GameObject instantiatedBulletPrefab = Instantiate(bulletPrefab, spawnBulletPosition, Quaternion.identity);
             if (instantiatedBulletPrefab.TryGetComponent<Rigidbody>(out Rigidbody rbBulletPrefab))
             {
-                rbBulletPrefab.AddForce(new Vector3(0f, bulletVerticalForce, 0f), ForceMode.Impulse);
+                rbBulletPrefab.AddRelativeForce(new Vector3(0f, bulletVerticalForce, 0f), ForceMode.VelocityChange);
             }
         }
     }

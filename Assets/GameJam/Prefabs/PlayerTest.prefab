@@ -199,5 +199,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4876020797346961603, guid: df0e6b3b1ee965f4b94d9b68fd1f9a41, type: 3}
   spawnBulletDistance: 1.75
-  bulletVerticalForce: 15
-  timeToDestroyBullet: 0.5
+  bulletVerticalForce: 25
