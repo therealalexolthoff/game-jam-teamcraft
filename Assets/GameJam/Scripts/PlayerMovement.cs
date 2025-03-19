@@ -5,7 +5,8 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("Controls how fast the player moves")]
     [SerializeField] private float playerSpeed = 10.0f;
 
-    private ShootComponent shootComponent;
+    [Tooltip("Reference to ShootComponent script")]
+    [SerializeField] private ShootComponent shootComponent;
 
     private void Start()
     {

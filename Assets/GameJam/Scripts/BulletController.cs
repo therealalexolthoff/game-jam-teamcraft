@@ -9,7 +9,6 @@ public class BulletController : MonoBehaviour
 
     private void OnBecameVisible()
     {
-        Debug.Log("Bullet became visible");
         isBulletVisible = true;
     }
 
@@ -21,7 +20,6 @@ public class BulletController : MonoBehaviour
         }
         else
         {
-            Debug.Log(timeToDestroyBullet);
             Invoke(nameof(DestroyBullet), timeToDestroyBullet);
         }
     }
