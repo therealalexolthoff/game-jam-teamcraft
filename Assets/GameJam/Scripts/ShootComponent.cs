@@ -18,6 +18,8 @@ public class ShootComponent : MonoBehaviour
     /// <para> params: _spawnBulletPosition The position to spawn the Bullet Prefab in the world. </para>
     /// <para> return: NONE </para>
     /// </summary>
+
+    // Remove comment
     public void SpawnBulletPrefab(Vector3 _spawnBulletPosition)
     {
         GameObject instantiatedBulletPrefab = Instantiate(bulletPrefab, _spawnBulletPosition, Quaternion.identity);
