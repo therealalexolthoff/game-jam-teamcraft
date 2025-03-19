@@ -622,6 +622,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerTest
       objectReference: {fileID: 0}
+    - target: {fileID: 8960318333042393226, guid: eccdb294f875a62458748770a8289715, type: 3}
+      propertyPath: timeToDestroyBullet
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

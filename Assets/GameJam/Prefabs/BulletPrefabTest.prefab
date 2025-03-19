@@ -151,4 +151,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cefa92dc4282db46aabcd142398fe76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDestroyBullet: 0.5
+  timeToDestroyBullet: 2
