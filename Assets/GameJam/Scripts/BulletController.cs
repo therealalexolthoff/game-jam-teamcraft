@@ -9,6 +9,7 @@ public class BulletController : MonoBehaviour
 
     private void OnBecameVisible()
     {
+        Debug.Log("Bullet became visible");
         isBulletVisible = true;
     }
 
@@ -21,7 +22,7 @@ public class BulletController : MonoBehaviour
         else
         {
             Debug.Log(timeToDestroyBullet);
-            Invoke(nameof(TrackVisibility), timeToDestroyBullet);
+            Invoke(nameof(DestroyBullet), timeToDestroyBullet);
         }
     }
 
@@ -31,9 +32,14 @@ public class BulletController : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    private void TrackVisibility()
+    /// <summary>
+    /// DestroyBullet
+    /// <para> brief: This functions destroys the owner GameObject when called. </para>
+    /// <para> params: NONE </para>
+    /// <para> return: NONE </para>
+    /// </summary>
+    private void DestroyBullet()
     {
-        Debug.Log($"{timeToDestroyBullet}");
         Destroy(this.gameObject);
     }
 }

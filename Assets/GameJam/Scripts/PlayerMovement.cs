@@ -5,6 +5,13 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("Controls how fast the player moves")]
     [SerializeField] private float playerSpeed = 10.0f;
 
+    private ShootComponent shootComponent;
+
+    private void Start()
+    {
+        shootComponent = GetComponent<ShootComponent>();
+    }
+
     // Update is called once per frame
     private void Update()
     {
@@ -28,6 +35,13 @@ public class PlayerMovement : MonoBehaviour
             newPlayerPosition += new Vector3(0f, verticalMoveTest, 0f) * playerSpeed * Time.deltaTime;
 
             transform.position = newPlayerPosition;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Vector3 spawnBulletPosition = new Vector3(transform.position.x, transform.position.y +
+                shootComponent.spawnBulletDistance, transform.position.z);
+            shootComponent.SpawnBulletPrefab(spawnBulletPosition);
         }
     }
 }
