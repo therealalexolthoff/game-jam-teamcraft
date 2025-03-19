@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Asteroid : MonoBehaviour
 {
     //Inspector
@@ -7,6 +8,10 @@ public class Asteroid : MonoBehaviour
     [SerializeField] private float minSpeed = 0.1f;
     [Tooltip("Maximum speed in meters per second.")]
     [SerializeField] private float maxSpeed = 4f;
+    [Tooltip("Minimum scale modifier.")]
+    [SerializeField] private float minSize = 0.5f;
+    [Tooltip("Maximum scale modifier.")]
+    [SerializeField] private float maxSize = 2f;
     [Tooltip("The rigidbody component of the asteroid.")]
     [SerializeField] private Rigidbody rb;
 
@@ -20,11 +25,14 @@ public class Asteroid : MonoBehaviour
     /// </summary>
     public void Init()
     {
+        //Cache a reference to the game manager
+        GameManager.Instance.Asteroids[GetInstanceID()] = this;
+
         //Get a random direction and speed, then set the rigidbody's velocity
         Vector2 direction = Random.rotation.eulerAngles;
         float speed = Random.Range(minSpeed, maxSpeed);
 
-        //rb.linearVelocity = direction * speed;
+        rb.linearVelocity = direction * speed;
 
         //Create 3 directions of random rotation with positive or negative direction
         float xRot = Random.Range(minSpeed, maxSpeed) * Random.Range(0, 2) * 2 - 1;
@@ -33,5 +41,9 @@ public class Asteroid : MonoBehaviour
 
         //Set rotation to random values
         rb.angularVelocity = new Vector3(xRot, yRot, zRot);
+
+        //Randomize the size
+        float scale = Random.Range(minSize, maxSize);
+        transform.localScale = new(scale, scale, scale);
     }
 }

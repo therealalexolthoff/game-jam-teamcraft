@@ -3,7 +3,12 @@ guid: 9bfd7b8a5c6fba047ba81e6398121c02
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Atlas_Asteroids
+    second: {fileID: 2100000, guid: 3ecfa799ee099d84f868b1e2841142de, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

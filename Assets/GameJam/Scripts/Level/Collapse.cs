@@ -20,6 +20,14 @@ public class Collapse : MonoBehaviour
 
     //Private
     private IEnumerator collapseBubblingRoutine = null;
+    private Vector3 initialPosition;
+
+    private void Awake()
+    {
+        //Initialize collapse in the game manager
+        GameManager.Instance.Collapse = this;
+        initialPosition = transform.position;
+    }
 
     private void Update()
     {
@@ -31,7 +39,6 @@ public class Collapse : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
         if (other.CompareTag("Player"))
         {
             //End the level in a loss if the player touches the collapse
@@ -50,5 +57,13 @@ public class Collapse : MonoBehaviour
             */
             Destroy(other.gameObject);
         }
+    }
+
+    /// <summary>
+    /// Resets the position of the collapse on level restart.
+    /// </summary>
+    public void ResetCollapse()
+    {
+        transform.position = initialPosition;
     }
 }
