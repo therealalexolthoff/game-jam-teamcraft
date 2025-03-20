@@ -34,7 +34,7 @@ TextureImporter:
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
-    sRGBTexture: 1
+    sRGBTexture: 0
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -81,7 +81,7 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 1
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -360,16 +360,6 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      N_Atlas_Asteroids_0: 5772969646384392290
-      N_Atlas_Asteroids_1: 6950860505352911492
-      N_Atlas_Asteroids_2: -2310120947621994979
-      N_Atlas_Asteroids_3: -6221001584218903770
-      N_Atlas_Asteroids_4: 1642471553191710796
-      N_Atlas_Asteroids_5: 5154132127547748559
-      N_Atlas_Asteroids_6: -6241782941739910498
-      N_Atlas_Asteroids_7: -4794064402896475129
-      N_Atlas_Asteroids_8: 2378330587948563231
     nameFileIdTable:
       N_Atlas_Asteroids_0: 5772969646384392290
       N_Atlas_Asteroids_1: 6950860505352911492

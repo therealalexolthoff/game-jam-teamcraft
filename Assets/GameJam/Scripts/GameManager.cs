@@ -30,14 +30,20 @@ public class GameManager : MonoBehaviour
     //Public
     public int LevelSize => levelSize;
     public Transform Player { get; set; }
-
-    //Private
+    public Collapse Collapse { get; set; }
     //Add in later once enemies are implemented
-    //private Dictionary<int, EnemyClass> enemyList = new();
+    //public Dictionary<int, EnemyClass> enemyList = new();
 
     private void Awake()
     {
+        //TODO: Remove awake method once Ivan completes player script to prevent merge conflicts
         Player = FindFirstObjectByType<PlayerMovement>().transform;
+    }
+
+    private void Start()
+    {
+        //Always reset the level when the scene starts running
+        Restart();
     }
 
     /// <summary>
@@ -58,24 +64,16 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            //restart
+            Restart();
         }
     }
 
-    //Remove after testing
-    private void Update()
+    private void Restart()
     {
-        Vector2 input = Vector2.zero;
-
-        if (Input.GetKey(KeyCode.W))
-            input += Vector2.up;
-        if (Input.GetKey(KeyCode.S))
-            input += Vector2.down;
-        if (Input.GetKey(KeyCode.A))
-            input += Vector2.left;
-        if (Input.GetKey(KeyCode.D))
-            input += Vector2.right;
-
-        Camera.main.transform.position += 1.5f * Time.deltaTime * (Vector3)input;
+        Collapse.ResetCollapse();
+        Player.position = Vector3.zero;
+        //TODO: reset player health
+        //TODO: reset enemies and obstacles
+        //TODO: (if using resources) reset resources
     }
 }
