@@ -32,10 +32,4 @@ public class EnemyController : MonoBehaviour
     {
         shootComponent.SpawnBulletPrefab(_positionToSpawnBullet);
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Enemy has been destroyed");
-        Destroy(this.gameObject);
-    }
 }
