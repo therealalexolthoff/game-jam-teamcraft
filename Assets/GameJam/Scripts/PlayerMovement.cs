@@ -8,14 +8,26 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("Reference to ShootComponent script")]
     [SerializeField] private ShootComponent shootComponent;
 
+    [Tooltip("The health of the player")]
+    [SerializeField] private int playerMaxHealth = 2;
+    private int currentPlayerHealth = 0;
+
     private void Start()
     {
+        currentPlayerHealth = playerMaxHealth;
         shootComponent = GetComponent<ShootComponent>();
     }
 
     // Update is called once per frame
     private void Update()
     {
+        if (currentPlayerHealth <= 0)
+        {
+            Debug.LogWarning("Player has died!");
+            Time.timeScale = 0;
+            return;
+        }
+
         // Horizontal/x-axis 
         float horizontalMoveTest = Input.GetAxis("Horizontal");
         Vector3 currentPlayerPosition = transform.position;
@@ -44,5 +56,11 @@ public class PlayerMovement : MonoBehaviour
                 shootComponent.spawnBulletDistance, transform.position.z);
             shootComponent.SpawnBulletPrefab(spawnBulletPosition);
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        currentPlayerHealth--;
+        Debug.LogWarning("Player has collided!");
     }
 }
