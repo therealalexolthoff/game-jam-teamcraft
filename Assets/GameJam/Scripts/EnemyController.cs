@@ -19,17 +19,17 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float spawnBulletDistance = shootComponent.spawnBulletDistance;
+        Vector3 enemyPosition = new Vector3(transform.position.x, transform.position.y + spawnBulletDistance, transform.position.z);
         if (Time.time > internalFireBulletRate)
         {
             internalFireBulletRate = Time.time + fireBulletRate;
-            //Invoke(nameof(FireBullet), fireBulletRate);
-            FireBullet();
+            FireBullet(enemyPosition);
         }
     }
 
-    private void FireBullet()
+    private void FireBullet(Vector3 _positionToSpawnBullet)
     {
-        float spawnBulletDistance = shootComponent.spawnBulletDistance;
-        shootComponent.SpawnBulletPrefab(new Vector3(transform.position.x, transform.position.y + spawnBulletDistance, transform.position.z));
+        shootComponent.SpawnBulletPrefab(_positionToSpawnBullet);
     }
 }
