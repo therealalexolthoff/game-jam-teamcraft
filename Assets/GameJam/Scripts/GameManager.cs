@@ -33,12 +33,17 @@ public class GameManager : MonoBehaviour
     public Collapse Collapse { get; set; }
     //Add in later once enemies are implemented
     //public Dictionary<int, EnemyClass> enemyList = new();
-    public Dictionary<int, Asteroid> Asteroids { get; private set; } = new();
 
     private void Awake()
     {
         //TODO: Remove awake method once Ivan completes player script to prevent merge conflicts
         Player = FindFirstObjectByType<PlayerMovement>().transform;
+    }
+
+    private void Start()
+    {
+        //Always reset the level when the scene starts running
+        Restart();
     }
 
     /// <summary>
@@ -70,12 +75,5 @@ public class GameManager : MonoBehaviour
         //TODO: reset player health
         //TODO: reset enemies and obstacles
         //TODO: (if using resources) reset resources
-
-        //Clear asteroids
-        foreach (var item in Asteroids)
-        {
-            Destroy(item.Value.gameObject);
-        }
-        Asteroids.Clear();
     }
 }
