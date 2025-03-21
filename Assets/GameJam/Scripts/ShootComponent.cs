@@ -7,10 +7,12 @@ public class ShootComponent : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
 
     [Tooltip("The distance in front of player to spawn the Bullet Prefab at")]
-    [SerializeField] public float spawnBulletDistance = 1.75f;
+    /*[SerializeField]*/
+    public float spawnBulletDistance;
 
     [Tooltip("The force to apply on the y-axis to the Bullet Prefab")]
-    [SerializeField] private float bulletVerticalForce = 25.0f;
+    /*[SerializeField]*/
+    public float bulletVerticalForce;
 
     /// <summary>
     /// DestroyBullet
@@ -19,7 +21,6 @@ public class ShootComponent : MonoBehaviour
     /// <para> return: NONE </para>
     /// </summary>
 
-    // Remove comment
     public void SpawnBulletPrefab(Vector3 _spawnBulletPosition)
     {
         GameObject instantiatedBulletPrefab = Instantiate(bulletPrefab, _spawnBulletPosition, Quaternion.identity);

@@ -117,6 +117,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -309,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      N_Atlas_Planets_0: 4566616882260152506
+      N_Atlas_Planets_1: -180185930403495534
+      N_Atlas_Planets_2: -8929447906064606543
+      N_Atlas_Planets_3: 8962030462815140544
+      N_Atlas_Planets_4: -6816545513149787607
+      N_Atlas_Planets_5: 6910319447037187948
+      N_Atlas_Planets_6: -8275971568471528008
+      N_Atlas_Planets_7: 4570343977800124390
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

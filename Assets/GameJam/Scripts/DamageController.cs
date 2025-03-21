@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class DamageController : MonoBehaviour
 {
-    [Tooltip("Max Health Value")]
-    [SerializeField] private int maxHealth = 1;
-    private int currentHealth = 0;
+    public int maxHealth;
+    private int currentHealth;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        Debug.LogWarning(this.gameObject.name + " has died!");
         currentHealth = maxHealth;
     }
 
