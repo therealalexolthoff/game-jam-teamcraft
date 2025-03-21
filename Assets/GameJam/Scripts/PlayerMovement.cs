@@ -1,3 +1,4 @@
+using UnityEditor.EditorTools;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -6,11 +7,32 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float playerSpeed = 10.0f;
 
     [Tooltip("Reference to ShootComponent script")]
-    [SerializeField] private ShootComponent shootComponent;
+    /*[SerializeField]*/
+    private ShootComponent shootComponent;
+
+    [Tooltip("Reference to DamageController script")]
+    /*[SerializeField]*/
+    private DamageController damageController;
+
+    [Tooltip("The distance in front of self to spawn the Bullet Prefab")]
+    [SerializeField] private float spawnBulletDistance = 1.75f;
+
+    [Tooltip("The force to apply on the y-axis to the Bullet Prefab")]
+    [SerializeField] private float bulletVerticalForce = 25.0f;
+
+    [Tooltip("Maximum health of GameObject")]
+    [SerializeField] private int maxHealth = 2;
 
     private void Start()
     {
+        // Get references to script components ShootComponent and DamageController
         shootComponent = GetComponent<ShootComponent>();
+        damageController = GetComponent<DamageController>();
+
+        // set values in components to values specified in self/this
+        shootComponent.spawnBulletDistance = spawnBulletDistance;
+        shootComponent.bulletVerticalForce = bulletVerticalForce;
+        damageController.maxHealth = maxHealth;
     }
 
     // Update is called once per frame
