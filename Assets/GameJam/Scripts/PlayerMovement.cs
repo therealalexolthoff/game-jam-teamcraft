@@ -5,14 +5,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [Tooltip("Controls how fast the player moves")]
     [SerializeField] private float playerSpeed = 10.0f;
-
-    [Tooltip("Reference to ShootComponent script")]
-    /*[SerializeField]*/
-    private ShootComponent shootComponent;
-
-    [Tooltip("Reference to DamageController script")]
-    /*[SerializeField]*/
-    private DamageController damageController;
+    [Tooltip("Acceleration in meters per second squared.")]
+    [SerializeField] private float acceleration = 3.33f;
 
     [Tooltip("The distance in front of self to spawn the Bullet Prefab")]
     [SerializeField] private float spawnBulletDistance = 1.75f;
@@ -23,11 +17,22 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("Maximum health of GameObject")]
     [SerializeField] private int maxHealth = 2;
 
+    //Component Cache
+    [Tooltip("Reference to ShootComponent script")]
+    /*[SerializeField]*/
+    private ShootComponent shootComponent;
+
+    [Tooltip("Reference to DamageController script")]
+    /*[SerializeField]*/
+    private DamageController damageController;
+    private Rigidbody rb;
+
     private void Start()
     {
         // Get references to script components ShootComponent and DamageController
         shootComponent = GetComponent<ShootComponent>();
         damageController = GetComponent<DamageController>();
+        rb = GetComponent<Rigidbody>();
 
         // set values in components to values specified in self/this
         shootComponent.spawnBulletDistance = spawnBulletDistance;
@@ -39,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         // Horizontal/x-axis 
+        /*
         float horizontalMoveTest = Input.GetAxis("Horizontal");
         Vector3 currentPlayerPosition = transform.position;
         Vector3 newPlayerPosition = currentPlayerPosition;
@@ -65,6 +71,24 @@ public class PlayerMovement : MonoBehaviour
             Vector3 spawnBulletPosition = new Vector3(transform.position.x, transform.position.y +
                 shootComponent.spawnBulletDistance, transform.position.z);
             shootComponent.SpawnBulletPrefab(spawnBulletPosition);
+        }
+        */
+
+        float x = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Vertical");
+
+        Vector2 direction = new(x, y);
+
+        if (direction != Vector2.zero)
+        {
+            //Accelerate the player each frame
+            rb.AddForce(acceleration * direction.normalized);
+
+            //Clamp maximum speed if player is moving too fast
+            if (rb.linearVelocity.magnitude > playerSpeed)
+            {
+                rb.linearVelocity = rb.linearVelocity.normalized * playerSpeed;
+            }
         }
     }
 }

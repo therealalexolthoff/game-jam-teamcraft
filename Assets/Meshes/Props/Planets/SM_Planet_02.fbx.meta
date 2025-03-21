@@ -3,7 +3,12 @@ guid: 77bbe99dfe3d5cc4980fcc3a0c92b810
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Atlas_Planets
+    second: {fileID: 2100000, guid: 1470649b52d0fae469dd37bfb57768a2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
