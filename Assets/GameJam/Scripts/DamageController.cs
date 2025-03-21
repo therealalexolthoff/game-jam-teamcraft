@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DamageController : MonoBehaviour
 {
+    //[Tooltip("GameObject to ignore")]
+    //[SerializeField] private GameObject objectToIgnore;
+
     public int maxHealth;
     private int currentHealth;
 
@@ -18,6 +21,7 @@ public class DamageController : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            Debug.LogWarning(this.gameObject.name + " has died!");
             this.gameObject.SetActive(false);
             //Destroy(this.gameObject);
         }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7683299177306434595}
   - component: {fileID: 8960318333042393226}
   - component: {fileID: 6570094839520023448}
+  - component: {fileID: 6680926634379303804}
   - component: {fileID: 2685047905643677333}
   m_Layer: 0
   m_Name: PlayerPrefab
@@ -77,7 +78,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 10
-  shootComponent: {fileID: 0}
+  spawnBulletDistance: 1.75
+  bulletVerticalForce: 25
+  maxHealth: 2
 --- !u!114 &8960318333042393226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,7 +108,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd048dab7b49984db722c1f486c8945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectToIgnore: {fileID: 0}
   maxHealth: 2
+--- !u!114 &6680926634379303804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7160171140855945711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 993103048d47d0f498871abf44368ed0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftEdgeBoundary: {fileID: 0}
+  rightEdgeBoundary: {fileID: 0}
 --- !u!65 &2685047905643677333
 BoxCollider:
   m_ObjectHideFlags: 0
