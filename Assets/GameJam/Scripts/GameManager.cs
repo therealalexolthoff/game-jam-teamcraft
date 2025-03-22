@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     //Public
     public int LevelSize => levelSize;
-    public Transform Player { get; set; }
+    public PlayerMovement Player { get; set; }
     public Collapse Collapse { get; set; }
     //Add in later once enemies are implemented
     //public Dictionary<int, EnemyClass> enemyList = new();
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         //TODO: Remove awake method once Ivan completes player script to prevent merge conflicts
-        Player = FindFirstObjectByType<PlayerMovement>().transform;
+        Player = FindFirstObjectByType<PlayerMovement>();
     }
 
     private void Start()
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
     private void Restart()
     {
         Collapse.ResetCollapse();
-        Player.position = Vector3.zero;
+        Player.ResetPlayer();
         //TODO: reset player health
         //TODO: reset enemies and obstacles
         //TODO: (if using resources) reset resources

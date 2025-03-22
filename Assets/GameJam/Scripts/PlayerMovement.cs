@@ -17,15 +17,28 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("Maximum health of GameObject")]
     [SerializeField] private int maxHealth = 2;
 
-    //Component Cache
-    [Tooltip("Reference to ShootComponent script")]
-    /*[SerializeField]*/
-    private ShootComponent shootComponent;
+    [Tooltip("The number of shots the player starts with.")]
+    [SerializeField] private int startingAmmunition = 30;
 
-    [Tooltip("Reference to DamageController script")]
-    /*[SerializeField]*/
+    //Component Cache
+    private ShootComponent shootComponent;
     private DamageController damageController;
     private Rigidbody rb;
+    private PlayerHUD HUD;
+
+    //Private
+    private int _ammunition;
+
+    //Public
+    public int Ammunition
+    {
+        get => _ammunition;
+        set
+        {
+            _ammunition = value;
+            HUD.UpdateAmmoText(_ammunition);
+        }
+    }
 
     private void Start()
     {
@@ -33,11 +46,13 @@ public class PlayerMovement : MonoBehaviour
         shootComponent = GetComponent<ShootComponent>();
         damageController = GetComponent<DamageController>();
         rb = GetComponent<Rigidbody>();
+        HUD = FindFirstObjectByType<PlayerHUD>();
 
         // set values in components to values specified in self/this
         shootComponent.spawnBulletDistance = spawnBulletDistance;
         shootComponent.bulletVerticalForce = bulletVerticalForce;
         damageController.maxHealth = maxHealth;
+        Ammunition = startingAmmunition;
     }
 
     // Update is called once per frame
@@ -65,13 +80,6 @@ public class PlayerMovement : MonoBehaviour
 
             transform.position = newPlayerPosition;
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Vector3 spawnBulletPosition = new Vector3(transform.position.x, transform.position.y +
-                shootComponent.spawnBulletDistance, transform.position.z);
-            shootComponent.SpawnBulletPrefab(spawnBulletPosition);
-        }
         */
 
         float x = Input.GetAxis("Horizontal");
@@ -90,5 +98,28 @@ public class PlayerMovement : MonoBehaviour
                 rb.linearVelocity = rb.linearVelocity.normalized * playerSpeed;
             }
         }
+        else
+        {
+            rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, Vector2.zero, Time.deltaTime);
+        }
+        
+        //Firing controls
+        if (Input.GetKeyDown(KeyCode.Space) && Ammunition > 0)
+        {
+            Vector3 spawnBulletPosition = new(transform.position.x, transform.position.y + shootComponent.spawnBulletDistance, transform.position.z);
+            shootComponent.SpawnBulletPrefab(spawnBulletPosition);
+            Ammunition--;
+        }
+    }
+
+    public void PickupAmmunition(int amt)
+    {
+        Ammunition += amt;
+    }
+
+    public void ResetPlayer()
+    {
+        transform.position = Vector3.zero;
+        rb.linearVelocity = Vector2.zero;
     }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8960318333042393226}
   - component: {fileID: 6570094839520023448}
   - component: {fileID: 6680926634379303804}
-  - component: {fileID: 2685047905643677333}
+  - component: {fileID: 5697402900176831689}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Untagged
@@ -78,9 +78,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 10
+  acceleration: 100
   spawnBulletDistance: 1.75
   bulletVerticalForce: 25
   maxHealth: 2
+  startingAmmunition: 30
 --- !u!114 &8960318333042393226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd048dab7b49984db722c1f486c8945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToIgnore: {fileID: 0}
+  collidableTags:
+  - Asteroid
   maxHealth: 2
 --- !u!114 &6680926634379303804
 MonoBehaviour:
@@ -124,8 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftEdgeBoundary: {fileID: 0}
   rightEdgeBoundary: {fileID: 0}
---- !u!65 &2685047905643677333
-BoxCollider:
+--- !u!136 &5697402900176831689
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -142,9 +145,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.2544138, y: 2.5071127, z: 0.6876654}
-  m_Center: {x: 0.00240013, y: 0.26122057, z: -0.31802514}
+  serializedVersion: 2
+  m_Radius: 0.45
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: -0.25}
 --- !u!1001 &7364317388899260825
 PrefabInstance:
   m_ObjectHideFlags: 0

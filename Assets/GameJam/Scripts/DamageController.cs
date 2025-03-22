@@ -17,17 +17,6 @@ public class DamageController : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
-        if (currentHealth <= 0)
-        {
-            Debug.LogWarning(this.gameObject.name + " has died!");
-            this.gameObject.SetActive(false);
-            //Destroy(this.gameObject);
-        }
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         //If the object should not take damage from this collision, return
@@ -36,5 +25,12 @@ public class DamageController : MonoBehaviour
 
         Debug.LogWarning(this.gameObject.name + " has taken damage");
         currentHealth--;
+
+        if (currentHealth <= 0)
+        {
+            Debug.LogWarning(this.gameObject.name + " has died!");
+            this.gameObject.SetActive(false);
+            //Destroy(this.gameObject);
+        }
     }
 }
