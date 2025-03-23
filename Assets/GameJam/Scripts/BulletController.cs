@@ -28,12 +28,6 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Ignore self
-        if (collision.gameObject.tag == objectToIgnore.tag)
-        {
-            Debug.Log("Nullified damage");
-            return;
-        }
         Debug.Log("Collided");
         Destroy(this.gameObject);
     }

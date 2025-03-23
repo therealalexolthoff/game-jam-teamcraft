@@ -1,3 +1,5 @@
+using System;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -27,6 +29,9 @@ public class EnemyController : MonoBehaviour
     [Tooltip("Reference to target to face")]
     [SerializeField] private Transform targetToFace;
 
+    [Tooltip("Rotation offset to fix Enemy's rotation when facing Player")]
+    [SerializeField] private Vector3 rotationOffset;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -49,7 +54,21 @@ public class EnemyController : MonoBehaviour
             FireBullet(enemyPosition);
         }
 
-        // rotate to face player
+        if (targetToFace == null)
+        {
+            Debug.LogWarning("Not looking at " + targetToFace.name);
+            return;
+        }
+
+        // Face the player 
+        Vector3 direction = targetToFace.position - this.transform.position;
+
+        Quaternion lookRotation = Quaternion.LookRotation(Vector3.forward, direction);
+
+        // Fix rotation so that Enemy only rotates on z-axis
+        Quaternion correctedRotation = lookRotation * Quaternion.Euler(rotationOffset);
+
+        this.transform.rotation = correctedRotation;
     }
 
     private void FireBullet(Vector3 _positionToSpawnBullet)
