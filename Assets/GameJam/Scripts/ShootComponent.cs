@@ -4,7 +4,7 @@ using UnityEngine;
 public class ShootComponent : MonoBehaviour
 {
     [Tooltip("Holds a reference to the Bullet Prefab to spawn in the world")]
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] public GameObject bulletPrefab;
 
     [Tooltip("The distance in front of player to spawn the Bullet Prefab at")]
     /*[SerializeField]*/

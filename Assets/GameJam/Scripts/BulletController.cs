@@ -5,6 +5,8 @@ public class BulletController : MonoBehaviour
     [Tooltip("Time, in seconds, to destroy Bullet Prefab after spawn")]
     [SerializeField] private float timeToDestroyBullet = 2.0f;
 
+    public GameObject objectToIgnore;
+
     private bool isBulletVisible = false;
 
     private void OnBecameVisible()
@@ -27,7 +29,7 @@ public class BulletController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // Ignore self
-        if (this.gameObject == collision.gameObject)
+        if (collision.gameObject.tag == objectToIgnore.tag)
         {
             Debug.Log("Nullified damage");
             return;

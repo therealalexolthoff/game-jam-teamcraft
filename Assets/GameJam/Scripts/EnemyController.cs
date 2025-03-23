@@ -24,6 +24,9 @@ public class EnemyController : MonoBehaviour
     [Tooltip("Maximum health of GameObject")]
     [SerializeField] private int maxHealth = 2;
 
+    [Tooltip("Reference to target to face")]
+    [SerializeField] private Transform targetToFace;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -45,6 +48,8 @@ public class EnemyController : MonoBehaviour
             internalFireBulletRate = Time.time + fireBulletRate;
             FireBullet(enemyPosition);
         }
+
+        // rotate to face player
     }
 
     private void FireBullet(Vector3 _positionToSpawnBullet)

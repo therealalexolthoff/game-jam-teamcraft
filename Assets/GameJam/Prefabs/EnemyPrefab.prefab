@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1958850788195687549}
   m_Layer: 0
   m_Name: EnemyPrefab
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,8 +63,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 810eac4571cc2a3479c76d0761740862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootComponent: {fileID: 0}
   fireBulletRate: 0.5
+  spawnBulletDistance: -3
+  bulletVerticalForce: -25
+  maxHealth: 2
+  targetToFace: {fileID: 2747333383432993879, guid: eccdb294f875a62458748770a8289715, type: 3}
 --- !u!65 &3202099373665354200
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -98,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd048dab7b49984db722c1f486c8945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collidableTags: []
   maxHealth: 1
 --- !u!1001 &1625005316554107088
 PrefabInstance:

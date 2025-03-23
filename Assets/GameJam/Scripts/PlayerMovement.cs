@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         // set values in components to values specified in self/this
         shootComponent.spawnBulletDistance = spawnBulletDistance;
         shootComponent.bulletVerticalForce = bulletVerticalForce;
+        shootComponent.bulletPrefab.GetComponent<BulletController>().objectToIgnore = this.gameObject;
         damageController.maxHealth = maxHealth;
         Ammunition = startingAmmunition;
     }
@@ -58,30 +59,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        // Horizontal/x-axis 
-        /*
-        float horizontalMoveTest = Input.GetAxis("Horizontal");
-        Vector3 currentPlayerPosition = transform.position;
-        Vector3 newPlayerPosition = currentPlayerPosition;
-
-        // Vertical/y-axis 
-        float verticalMoveTest = Input.GetAxis("Vertical");
-
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-        {
-            newPlayerPosition += new Vector3(horizontalMoveTest, 0f, 0f) * playerSpeed * Time.deltaTime;
-
-            transform.position = newPlayerPosition;
-        }
-
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W))
-        {
-            newPlayerPosition += new Vector3(0f, verticalMoveTest, 0f) * playerSpeed * Time.deltaTime;
-
-            transform.position = newPlayerPosition;
-        }
-        */
-
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
 
@@ -102,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, Vector2.zero, Time.deltaTime);
         }
-        
+
         //Firing controls
         if (Input.GetKeyDown(KeyCode.Space) && Ammunition > 0)
         {
