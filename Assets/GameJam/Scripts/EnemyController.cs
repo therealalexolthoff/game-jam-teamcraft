@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float spawnBulletDistance = -3.0f;
 
     [Tooltip("The force to apply on the y-axis to the Bullet Prefab")]
-    [SerializeField] private float bulletVerticalForce = -25.0f;
+    [SerializeField] private Vector3 bulletVerticalForce; // = -25.0f;
 
     [Tooltip("Maximum health of GameObject")]
     [SerializeField] private int maxHealth = 2;
@@ -32,6 +32,9 @@ public class EnemyController : MonoBehaviour
     [Tooltip("Rotation offset to fix Enemy's rotation when facing Player")]
     [SerializeField] private Vector3 rotationOffset;
 
+    [Tooltip("Position/Location to spawn Bullet Prefab")]
+    [SerializeField] private Transform spawnBulletPosition;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -39,19 +42,21 @@ public class EnemyController : MonoBehaviour
         damageController = GetComponent<DamageController>();
 
         shootComponent.spawnBulletDistance = spawnBulletDistance;
-        shootComponent.bulletVerticalForce = bulletVerticalForce;
+        //shootComponent.bulletVerticalForce = spawnBulletPosition.forward * 25f;
         damageController.maxHealth = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
+        shootComponent.bulletVerticalForce = spawnBulletPosition.forward * 25f;
+        Debug.Log(spawnBulletPosition.forward * 25f);
         float spawnBulletDistance = shootComponent.spawnBulletDistance;
         Vector3 enemyPosition = new Vector3(transform.position.x, transform.position.y + spawnBulletDistance, transform.position.z);
         if (Time.time > internalFireBulletRate)
         {
             internalFireBulletRate = Time.time + fireBulletRate;
-            FireBullet(enemyPosition);
+            FireBullet(spawnBulletPosition.position);
         }
 
         if (targetToFace == null)

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8249632731190881162}
   - component: {fileID: 3202099373665354200}
   - component: {fileID: 1958850788195687549}
-  - component: {fileID: 8105769197862959149}
+  - component: {fileID: 1563840900987790917}
   m_Layer: 0
   m_Name: EnemyPrefab
   m_TagString: Enemy
@@ -35,6 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1227112996068216635}
+  - {fileID: 7687727946934544061}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5677787168971293187
@@ -70,6 +71,7 @@ MonoBehaviour:
   maxHealth: 2
   targetToFace: {fileID: 0}
   rotationOffset: {x: -90, y: 180, z: 0}
+  spawnBulletPosition: {fileID: 0}
 --- !u!65 &3202099373665354200
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -105,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collidableTags: []
   maxHealth: 100
---- !u!54 &8105769197862959149
+--- !u!54 &1563840900987790917
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,6 +134,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 56
   m_CollisionDetection: 0
+--- !u!1 &2739430060262195059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7687727946934544061}
+  m_Layer: 0
+  m_Name: SpawnBullletPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7687727946934544061
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2739430060262195059}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.11, z: 3.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5798043361569600058}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1625005316554107088
 PrefabInstance:
   m_ObjectHideFlags: 0

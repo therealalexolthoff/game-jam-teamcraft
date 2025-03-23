@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
         // set values in components to values specified in self/this
         shootComponent.spawnBulletDistance = spawnBulletDistance;
-        shootComponent.bulletVerticalForce = bulletVerticalForce;
+        //shootComponent.bulletVerticalForce = bulletVerticalForce;
         shootComponent.bulletPrefab.GetComponent<BulletController>().objectToIgnore = this.gameObject;
         damageController.maxHealth = maxHealth;
         Ammunition = startingAmmunition;

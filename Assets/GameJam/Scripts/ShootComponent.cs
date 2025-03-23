@@ -12,7 +12,7 @@ public class ShootComponent : MonoBehaviour
 
     [Tooltip("The force to apply on the y-axis to the Bullet Prefab")]
     /*[SerializeField]*/
-    public float bulletVerticalForce;
+    public Vector3 bulletVerticalForce;
 
     /// <summary>
     /// DestroyBullet
@@ -26,7 +26,9 @@ public class ShootComponent : MonoBehaviour
         GameObject instantiatedBulletPrefab = Instantiate(bulletPrefab, _spawnBulletPosition, Quaternion.identity);
         if (instantiatedBulletPrefab.TryGetComponent<Rigidbody>(out Rigidbody rbBulletPrefab))
         {
-            rbBulletPrefab.AddRelativeForce(new Vector3(0f, bulletVerticalForce, 0f), ForceMode.VelocityChange);
+            //bulletVerticalForce.z = 0f;
+            Debug.LogWarning(bulletVerticalForce.normalized * 25f);
+            rbBulletPrefab.AddForce(bulletVerticalForce, ForceMode.VelocityChange);
         }
     }
 }
