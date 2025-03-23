@@ -13,7 +13,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Vector3 bulletVerticalForce; // = -25.0f;
 
     [Tooltip("Maximum health of GameObject")]
-    [SerializeField] private int maxHealth = 2;
+    [SerializeField] private int maxHealth = 5;
 
     [Tooltip("Reference to target to face")]
     [SerializeField] private Transform targetToFace;
@@ -43,7 +43,8 @@ public class EnemyController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         shootComponent.spawnBulletDistance = spawnBulletDistance;
-        damageController.maxHealth = maxHealth;
+        //damageController.maxHealth = maxHealth;
+        damageController.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame

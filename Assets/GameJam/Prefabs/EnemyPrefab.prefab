@@ -72,6 +72,8 @@ MonoBehaviour:
   targetToFace: {fileID: 0}
   rotationOffset: {x: -90, y: 180, z: 0}
   spawnBulletPosition: {fileID: 7687727946934544061}
+  minPlayerDistance: 15
+  speed: 17.5
 --- !u!114 &1958850788195687549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,7 +89,6 @@ MonoBehaviour:
   collidableTags:
   - Player
   - Asteroid
-  maxHealth: 100
 --- !u!136 &3120662740825497625
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -178,16 +179,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 5798043361569600058}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 86f2a2030d4639144ae11d722a9642e8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 86f2a2030d4639144ae11d722a9642e8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 86f2a2030d4639144ae11d722a9642e8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 86f2a2030d4639144ae11d722a9642e8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 86f2a2030d4639144ae11d722a9642e8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.143
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 86f2a2030d4639144ae11d722a9642e8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 86f2a2030d4639144ae11d722a9642e8, type: 3}
       propertyPath: m_LocalRotation.w

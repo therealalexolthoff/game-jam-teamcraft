@@ -1,5 +1,8 @@
+using System;
+using Unity.VisualScripting;
 using UnityEditor.EditorTools;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float bulletVerticalForce = 25.0f;
 
     [Tooltip("Maximum health of GameObject")]
-    [SerializeField] private int maxHealth = 2;
+    [SerializeField] private int maxHealth = 50;
 
     [Tooltip("The number of shots the player starts with.")]
     [SerializeField] private int startingAmmunition = 30;
@@ -24,10 +27,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform turret;
 
     [Tooltip("Farthest left rotation of the turret.")]
-    [SerializeField] [Range(-180, 0)] private int minRotation = -120;
+    [SerializeField][Range(-180, 0)] private int minRotation = -120;
 
     [Tooltip("Farthest right rotation of the turret.")]
-    [SerializeField] [Range(0, 180)] private int maxRotation = 120;
+    [SerializeField][Range(0, 180)] private int maxRotation = 120;
 
     //Component Cache
     private ShootComponent shootComponent;
@@ -58,7 +61,8 @@ public class PlayerMovement : MonoBehaviour
         HUD = FindFirstObjectByType<PlayerHUD>();
 
         shootComponent.bulletPrefab.GetComponent<BulletController>().objectToIgnore = this.gameObject;
-        damageController.maxHealth = maxHealth;
+        //damageController.maxHealth = maxHealth;
+        damageController.SetMaxHealth(maxHealth);
         Ammunition = startingAmmunition;
     }
 
@@ -100,9 +104,9 @@ public class PlayerMovement : MonoBehaviour
         //Clamp the rotation, and reapply the values to the transform
         rotation.z = rotation.z < minRotation ? minRotation : rotation.z > maxRotation ? maxRotation : rotation.z;
         turret.localRotation = Quaternion.Euler(rotation);
-        
+
         //Firing controls
-        if (Input.GetKeyDown(KeyCode.Space) && Ammunition > 0)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && Ammunition > 0)
         {
             shootComponent.SpawnBulletPrefab(spawnBulletPosition.position, shootDirection);
             Ammunition--;

@@ -8,13 +8,14 @@ public class DamageController : MonoBehaviour
     [Tooltip("A list of tags the object will take damage from when colliding with.")]
     [SerializeField] private List<string> collidableTags;
 
-    public int maxHealth;
-    private int currentHealth;
+    private int maxHealth;
+    //private int currentHealth;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        currentHealth = maxHealth;
+        //currentHealth = maxHealth;
+        //Debug.LogWarning(currentHealth);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -24,13 +25,18 @@ public class DamageController : MonoBehaviour
             return;
 
         Debug.LogWarning(this.gameObject.name + " has taken damage from " + collision.gameObject.name);
-        currentHealth--;
+        maxHealth--;
 
-        if (currentHealth <= 0)
+        if (maxHealth <= 0)
         {
             Debug.LogWarning(this.gameObject.name + " has died!");
             this.gameObject.SetActive(false);
             //Destroy(this.gameObject);
         }
+    }
+
+    public void SetMaxHealth(int _maxHealth)
+    {
+        maxHealth = _maxHealth;
     }
 }
