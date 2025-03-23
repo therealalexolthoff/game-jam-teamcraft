@@ -8,8 +8,8 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("Acceleration in meters per second squared.")]
     [SerializeField] private float acceleration = 3.33f;
 
-    [Tooltip("The distance in front of self to spawn the Bullet Prefab")]
-    [SerializeField] private float spawnBulletDistance = 1.75f;
+    [Tooltip("The position to spawn the Bullet Prefab")]
+    [SerializeField] private Transform spawnBulletPosition;
 
     [Tooltip("The force to apply on the y-axis to the Bullet Prefab")]
     [SerializeField] private float bulletVerticalForce = 25.0f;
@@ -19,6 +19,15 @@ public class PlayerMovement : MonoBehaviour
 
     [Tooltip("The number of shots the player starts with.")]
     [SerializeField] private int startingAmmunition = 30;
+
+    [Tooltip("The transform for rotating the turret.")]
+    [SerializeField] private Transform turret;
+
+    [Tooltip("Farthest left rotation of the turret.")]
+    [SerializeField] [Range(-180, 0)] private int minRotation = -120;
+
+    [Tooltip("Farthest right rotation of the turret.")]
+    [SerializeField] [Range(0, 180)] private int maxRotation = 120;
 
     //Component Cache
     private ShootComponent shootComponent;
@@ -48,9 +57,6 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         HUD = FindFirstObjectByType<PlayerHUD>();
 
-        // set values in components to values specified in self/this
-        shootComponent.spawnBulletDistance = spawnBulletDistance;
-        //shootComponent.bulletVerticalForce = bulletVerticalForce;
         shootComponent.bulletPrefab.GetComponent<BulletController>().objectToIgnore = this.gameObject;
         damageController.maxHealth = maxHealth;
         Ammunition = startingAmmunition;
@@ -80,11 +86,25 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, Vector2.zero, Time.deltaTime);
         }
 
+        //Rotate the turret
+        Vector3 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 shootDirection = (Vector2)(cursorPos - transform.position).normalized;
+
+        //Set rotation and apply offsets to make it face the cursor correctly
+        turret.up = shootDirection;
+        Vector3 rotation = turret.localRotation.eulerAngles;
+        rotation.z *= -1;
+        rotation.z += 180;
+        rotation.y = 180;
+
+        //Clamp the rotation, and reapply the values to the transform
+        rotation.z = rotation.z < minRotation ? minRotation : rotation.z > maxRotation ? maxRotation : rotation.z;
+        turret.localRotation = Quaternion.Euler(rotation);
+        
         //Firing controls
         if (Input.GetKeyDown(KeyCode.Space) && Ammunition > 0)
         {
-            Vector3 spawnBulletPosition = new(transform.position.x, transform.position.y + shootComponent.spawnBulletDistance, transform.position.z);
-            shootComponent.SpawnBulletPrefab(spawnBulletPosition);
+            shootComponent.SpawnBulletPrefab(spawnBulletPosition.position, shootDirection);
             Ammunition--;
         }
     }

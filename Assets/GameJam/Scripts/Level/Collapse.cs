@@ -8,18 +8,7 @@ public class Collapse : MonoBehaviour
     [Tooltip("The speed in meters per second that the collapse moves up the level.")]
     [SerializeField] private float speed = 1;
 
-    [Header("Visuals")]
-    [Tooltip("The distance the player must be for visuals to show up in the collapse.")]
-    [SerializeField] private float visualDistance = 20;
-    [Tooltip("Minimum size for a bubble.")]
-    [SerializeField] private float minBubblesize = 1.5f;
-    [Tooltip("Maximum size for a bubble.")]
-    [SerializeField] private float maxBubbleSize = 5;
-    [Tooltip("Prefab for bubbles.")]
-    [SerializeField] private CollapseBubble bubblePrefab;
-
     //Private
-    private IEnumerator collapseBubblingRoutine = null;
     private Vector3 initialPosition;
 
     private void Awake()

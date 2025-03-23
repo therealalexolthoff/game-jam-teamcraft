@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5798043361569600058}
   - component: {fileID: 5677787168971293187}
   - component: {fileID: 8249632731190881162}
-  - component: {fileID: 3202099373665354200}
   - component: {fileID: 1958850788195687549}
+  - component: {fileID: 3120662740825497625}
   - component: {fileID: 1563840900987790917}
   m_Layer: 0
   m_Name: EnemyPrefab
@@ -50,9 +50,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 718d792cb53d93643a84b97038415db9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4876020797346961603, guid: df0e6b3b1ee965f4b94d9b68fd1f9a41, type: 3}
-  spawnBulletDistance: -3
-  bulletVerticalForce: -25
+  bulletPrefab: {fileID: 1773146679712433914, guid: df0e6b3b1ee965f4b94d9b68fd1f9a41, type: 3}
+  spawnBulletDistance: 0
+  speed: 25
 --- !u!114 &8249632731190881162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,13 +67,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireBulletRate: 0.5
   spawnBulletDistance: -3
-  bulletVerticalForce: -25
+  bulletVerticalForce: {x: 0, y: 0, z: 0}
   maxHealth: 2
   targetToFace: {fileID: 0}
   rotationOffset: {x: -90, y: 180, z: 0}
-  spawnBulletPosition: {fileID: 0}
---- !u!65 &3202099373665354200
-BoxCollider:
+  spawnBulletPosition: {fileID: 7687727946934544061}
+--- !u!114 &1958850788195687549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321508348492213185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dd048dab7b49984db722c1f486c8945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collidableTags:
+  - Player
+  - Asteroid
+  maxHealth: 100
+--- !u!136 &3120662740825497625
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -90,23 +106,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.8592284, y: 1.822937, z: 5.663311}
-  m_Center: {x: -0.030479074, y: -0.6, z: -0.36574984}
---- !u!114 &1958850788195687549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321508348492213185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dd048dab7b49984db722c1f486c8945, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collidableTags: []
-  maxHealth: 100
+  serializedVersion: 2
+  m_Radius: 0.46
+  m_Height: 1.41
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: -0.21}
 --- !u!54 &1563840900987790917
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -115,9 +119,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321508348492213185}
   serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 5
+  m_Drag: 1
+  m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -159,7 +163,7 @@ Transform:
   m_GameObject: {fileID: 2739430060262195059}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.11, z: 3.4}
+  m_LocalPosition: {x: 0, y: 0, z: 1.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
