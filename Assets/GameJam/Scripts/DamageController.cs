@@ -35,6 +35,12 @@ public class DamageController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// SetMaxHealth
+    /// <para> brief: This function sets the maximum health of the owner GameObject. </para>
+    /// <para> params: _maxHealth: int, The maximum health of the owner GameObject. </para>
+    /// <para> return: NONE </para>
+    /// </summary>
     public void SetMaxHealth(int _maxHealth)
     {
         maxHealth = _maxHealth;
