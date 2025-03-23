@@ -14,6 +14,8 @@ public class ShootComponent : MonoBehaviour
     /*[SerializeField]*/
     public Vector3 bulletVerticalForce;
 
+    public Quaternion quaternion;
+
     /// <summary>
     /// DestroyBullet
     /// <para> brief: This function spawns a Bullet Prefab and adds a forward force to it. </para>
@@ -27,7 +29,7 @@ public class ShootComponent : MonoBehaviour
         if (instantiatedBulletPrefab.TryGetComponent<Rigidbody>(out Rigidbody rbBulletPrefab))
         {
             //bulletVerticalForce.z = 0f;
-            Debug.LogWarning(bulletVerticalForce.normalized * 25f);
+            Debug.LogWarning(bulletVerticalForce);
             rbBulletPrefab.AddForce(bulletVerticalForce, ForceMode.VelocityChange);
         }
     }

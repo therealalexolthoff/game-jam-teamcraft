@@ -50,8 +50,9 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         shootComponent.bulletVerticalForce = spawnBulletPosition.forward * 25f;
-        Debug.Log(spawnBulletPosition.forward * 25f);
-        float spawnBulletDistance = shootComponent.spawnBulletDistance;
+        //shootComponent.quaternion = Quaternion.LookRotation(transform.eulerAngles);
+        Debug.Log(shootComponent.bulletVerticalForce);
+        //float spawnBulletDistance = shootComponent.spawnBulletDistance;
         Vector3 enemyPosition = new Vector3(transform.position.x, transform.position.y + spawnBulletDistance, transform.position.z);
         if (Time.time > internalFireBulletRate)
         {
