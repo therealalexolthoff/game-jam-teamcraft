@@ -254,7 +254,7 @@ MonoBehaviour:
   playerSpeed: 10
   acceleration: 100
   spawnBulletPosition: {fileID: 2760395769769700137}
-  maxHealth: 5
+  maxHealth: 8
   startingAmmunition: 30
   turret: {fileID: 6894171961549806918}
   minRotation: -120
