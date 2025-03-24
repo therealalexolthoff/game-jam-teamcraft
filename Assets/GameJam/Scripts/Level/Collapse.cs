@@ -23,8 +23,9 @@ public class Collapse : MonoBehaviour
     {
         //Move the collapse up the screen very frame
         transform.position += new Vector3(0, speed * Time.deltaTime, 0);
+        float distanceToPlayer = Vector3.Distance(GameManager.Instance.Player.transform.position, transform.position);
 
-        if (Vector3.Distance(GameManager.Instance.Player.transform.position, transform.position) > distance)
+        if (distanceToPlayer > distance)
         {
             transform.position += new Vector3(0, speed * Time.deltaTime, 0);
         }

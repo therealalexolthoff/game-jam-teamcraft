@@ -43,13 +43,15 @@ public class DamageController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (maxHealth <= 0)
+            return;
         //If the object should not take damage from this collision, return
         if (!collidableTags.Contains(collision.transform.tag))
             return;
 
         TriggerDamage(1);
         //Debug.LogWarning(gameObject.name + " has taken damage from " + collision.gameObject.name);
-        
+
     }
 
     public void TriggerDamage(int amt)
