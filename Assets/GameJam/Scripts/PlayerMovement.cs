@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
         if (direction != Vector2.zero)
         {
             //Accelerate the player each frame
-            rb.AddForce(acceleration * direction.normalized);
+            rb.AddForce(acceleration * direction.normalized * Time.deltaTime, ForceMode.Impulse);
 
             //Clamp maximum speed if player is moving too fast
             if (rb.linearVelocity.magnitude > playerSpeed)

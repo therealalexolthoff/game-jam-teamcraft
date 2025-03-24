@@ -7,6 +7,8 @@ public class Collapse : MonoBehaviour
     [Tooltip("The speed in meters per second that the collapse moves up the level.")]
     [SerializeField] private float speed = 1;
 
+    [SerializeField] private float distance = 30f;
+
     //Private
     private Vector3 initialPosition;
 
@@ -21,6 +23,11 @@ public class Collapse : MonoBehaviour
     {
         //Move the collapse up the screen very frame
         transform.position += new Vector3(0, speed * Time.deltaTime, 0);
+
+        if (Vector3.Distance(GameManager.Instance.Player.transform.position, transform.position) > distance)
+        {
+            transform.position += new Vector3(0, speed * Time.deltaTime, 0);
+        }
 
         //TODO: visualize collapse with bubbles
     }

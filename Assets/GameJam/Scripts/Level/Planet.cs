@@ -45,7 +45,7 @@ public class Planet : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
             input += Vector2.right;
 
-        planetGraphic.localPosition += PARALLAX_MULT_INTERNAL * parallaxMultiplier * (0.5f + distanceScale / 2) * (Vector3)input;
+        planetGraphic.localPosition += PARALLAX_MULT_INTERNAL * parallaxMultiplier * (0.5f + distanceScale / 2) * (Vector3)input * 60 * Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)

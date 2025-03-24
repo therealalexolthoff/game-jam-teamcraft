@@ -63,7 +63,7 @@ public class EnemyController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Face the player 
         Vector3 direction = (targetToFace.position - transform.position).normalized;
@@ -93,7 +93,7 @@ public class EnemyController : MonoBehaviour
             rb.AddForce(speed * direction);
         }
         else
-            rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, Vector3.zero, Time.deltaTime);
+            rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, Vector3.zero, Time.fixedDeltaTime);
     }
 
     public void ResetEnemy()
