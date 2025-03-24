@@ -8,6 +8,10 @@ public class DamageController : MonoBehaviour
     [Tooltip("A list of tags the object will take damage from when colliding with.")]
     [SerializeField] private List<string> collidableTags;
 
+    // Reference to DebrisSpawner
+    [Tooltip("Reference to DebrisSpawner Component")]
+    [SerializeField] private DebrisSpawner debrisSpawner;
+
     private int maxHealth;
     //private int currentHealth;
 
@@ -31,6 +35,7 @@ public class DamageController : MonoBehaviour
         {
             Debug.LogWarning(this.gameObject.name + " has died!");
             this.gameObject.SetActive(false);
+            debrisSpawner.SpawnRandomDebri();
             //Destroy(this.gameObject);
         }
     }
