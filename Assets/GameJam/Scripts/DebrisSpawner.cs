@@ -18,5 +18,7 @@ public class DebrisSpawner : MonoBehaviour
         Debug.LogWarning("Size of List = " + debrisPrefabs.Count);
         int indexOfList = Random.Range(0, debrisPrefabs.Count - 1);
         Debug.LogWarning("Random number = " + indexOfList);
+
+        Instantiate(debrisPrefabs[indexOfList], this.transform.position, Quaternion.identity);
     }
 }
