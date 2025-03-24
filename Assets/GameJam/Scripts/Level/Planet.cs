@@ -17,6 +17,12 @@ public class Planet : MonoBehaviour
     /// Multiplies the distance the planet graphic is moved based on the player's distance.
     /// </summary>
     private const float PARALLAX_MULT_INTERNAL = -0.0025f;
+    private Vector3 initialPos;
+
+    private void Awake()
+    {
+        initialPos = planetGraphic.localPosition;
+    }
 
     private void Update()
     {
@@ -50,5 +56,10 @@ public class Planet : MonoBehaviour
             Debug.Log("You Win!");
             GameManager.Instance.EndLevel(true);
         }
+    }
+
+    public void ResetPlanet()
+    {
+        planetGraphic.localPosition = initialPos;
     }
 }

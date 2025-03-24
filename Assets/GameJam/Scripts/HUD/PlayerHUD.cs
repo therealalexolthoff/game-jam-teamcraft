@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHUD : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class PlayerHUD : MonoBehaviour
 
     [Tooltip("Amount of time for the message to be displayed.")]
     [SerializeField] private float messageDisplayTime = 1.25f;
+
+    [SerializeField] private Image black;
+    [SerializeField] private float fadeTime = 1.25f;
 
     /// <summary>
     /// Sets the display for ammo count to amt.
@@ -42,6 +46,37 @@ public class PlayerHUD : MonoBehaviour
         yield return new WaitForSeconds(messageDisplayTime);
         messageText.gameObject.SetActive(false);
     }
-    
-    // Player Shield Generator (Life Display Pending)
+
+    /// <summary>
+    /// Set val to true to fade to black, false to remove black.
+    /// </summary>
+    /// <param name="val"></param>
+    public void SetScreenFade(bool val)
+    {
+        if (val)
+        {
+            StartCoroutine(ScreenFade());
+        }
+        else
+        {
+            black.color = new(0, 0, 0 ,0);
+        }
+    }
+
+    private IEnumerator ScreenFade()
+    {
+        float time = 0;
+        Color startColor = new(0, 0, 0, 0);
+        Color targetColor = Color.black;
+
+        while (time < fadeTime)
+        {
+            time += Time.deltaTime;
+            black.color = Color.Lerp(startColor, targetColor, time / fadeTime);
+            yield return null;
+        }
+
+        black.color = targetColor;
+    }
+
 }

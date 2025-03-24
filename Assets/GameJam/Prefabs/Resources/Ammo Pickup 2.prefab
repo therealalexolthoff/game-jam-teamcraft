@@ -153,6 +153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1593a3ac80a5ee4458c4cbfce8e49b33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minAmmo: 5
-  maxAmmo: 15
-  pickupSFX: []
+  minAmmo: 1
+  maxAmmo: 5
+  pickupSFX:
+  - {fileID: 8300000, guid: 9be4ddb011521e347a0225825cb643a9, type: 3}
+  - {fileID: 8300000, guid: eabface0b48d0744eb73d3e03b67569d, type: 3}
+  sceneObject: 0

@@ -1,8 +1,5 @@
-using System;
-using Unity.VisualScripting;
-using UnityEditor.EditorTools;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -28,6 +25,9 @@ public class PlayerMovement : MonoBehaviour
 
     [Tooltip("Farthest right rotation of the turret.")]
     [SerializeField][Range(0, 180)] private int maxRotation = 120;
+
+    [SerializeField] private List<AudioClip> fireSFX;
+    [SerializeField] private AudioSource thrustSFX;
 
     //Component Cache
     private ShootComponent shootComponent;
@@ -91,10 +91,15 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.linearVelocity = rb.linearVelocity.normalized * playerSpeed;
             }
+
+            if (!thrustSFX.isPlaying)
+                thrustSFX.Play();
         }
         else
         {
             rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, Vector2.zero, Time.deltaTime);
+            if (thrustSFX.isPlaying)
+                thrustSFX.Stop();
         }
 
         //Rotate the turret
@@ -115,6 +120,7 @@ public class PlayerMovement : MonoBehaviour
         //Firing controls
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && Ammunition > 0)
         {
+            AudioManager.Instance.PlaySound(fireSFX[Random.Range(0, fireSFX.Count)]);
             shootComponent.SpawnBulletPrefab(spawnBulletPosition.position, shootDirection);
             Ammunition--;
         }
@@ -135,11 +141,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void ReachPlanet()
+    {
+        HUD.SetMessageText("You Win!");
+        HUD.SetScreenFade(true);
+    }
+
     public void ResetPlayer()
     {
         transform.position = Vector3.zero;
         rb.linearVelocity = Vector2.zero;
         damageController.SetMaxHealth(maxHealth);
+        UpdateHealth(maxHealth);
         gameObject.SetActive(true);
+        Ammunition = startingAmmunition;
+        HUD.SetScreenFade(false);
     }
 }

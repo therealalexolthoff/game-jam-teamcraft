@@ -30,21 +30,12 @@ public class Collapse : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //End the level in a loss if the player touches the collapse
-            Debug.Log("You Lose!");
-            other.gameObject.SetActive(false);
+            other.GetComponent<DamageController>().TriggerDamage(10);
             GameManager.Instance.EndLevel(false);
         }
         else if (other.CompareTag("Enemy"))
         {
-            //Destroy enemy ship if it touches the collapse
-            /* TODO:
-            if (other.TryGetComponent<EnemyShip>(out var enemy))
-            {
-                //Destroy enemy ship without spawning loot
-                enemy.DestroyShip(false);
-            }
-            */
-            Destroy(other.gameObject);
+            other.GetComponent<DamageController>().TriggerDamage(10);
         }
     }
 

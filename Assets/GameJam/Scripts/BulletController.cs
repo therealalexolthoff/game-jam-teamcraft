@@ -28,8 +28,7 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collided");
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 
     /// <summary>
@@ -40,6 +39,6 @@ public class BulletController : MonoBehaviour
     /// </summary>
     private void DestroyBullet()
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }

@@ -27,13 +27,15 @@ public class Asteroid : MonoBehaviour
     {
         //Add rotational force
         transform.rotation = Random.rotation;
-        rb.AddTorque(Random.rotation.eulerAngles * Random.Range(minSpeed, maxSpeed));
+        rb.AddTorque(Random.rotation.eulerAngles * Random.Range(minSpeed / 2, maxSpeed / 2));
+        rb.AddForce((Vector2)Random.rotation.eulerAngles.normalized * Random.Range(minSpeed, maxSpeed));
     }
 
     public void ResetAsteroid()
     {
         transform.position = initialPos;
         rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
         Init();
     }
 }

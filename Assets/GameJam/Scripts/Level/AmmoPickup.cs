@@ -10,6 +10,9 @@ public class AmmoPickup : MonoBehaviour
     [Tooltip("Sound effects played on pickup.")]
     [SerializeField] private List<AudioClip> pickupSFX;
 
+    [Tooltip("True if the ammo pickup was initially placed in the lelve.")]
+    [SerializeField] private bool sceneObject = false;
+
     private void Awake()
     {
         GameManager.Instance.ammunition[GetInstanceID()] = this;
@@ -22,14 +25,24 @@ public class AmmoPickup : MonoBehaviour
             GameManager.Instance.Player.PickupAmmunition(Random.Range(minAmmo, maxAmmo + 1));
             if (pickupSFX.Count > 0)
             {
-                //TODO: Play audio clip
+                AudioManager.Instance.PlaySound(pickupSFX[Random.Range(0, pickupSFX.Count)]);
             }
+            
             gameObject.SetActive(false);
         }
     }
 
-    public void ResetPickup()
+    public bool ResetPickup()
     {
-        gameObject.SetActive(true);
+        if (sceneObject)
+        {
+            gameObject.SetActive(true);
+            return false;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return true;
+        }
     }
 }

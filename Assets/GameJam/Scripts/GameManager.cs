@@ -1,11 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
-
-
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -32,6 +28,8 @@ public class GameManager : MonoBehaviour
     [Tooltip("Delay before respawning.")]
     [SerializeField] private float respawnDelay = 1.25f;
 
+    [SerializeField] private Planet planet;
+
     //Public
     public int LevelSize => levelSize;
     public PlayerMovement Player { get; set; }
@@ -39,6 +37,7 @@ public class GameManager : MonoBehaviour
     public Dictionary<int, EnemyController> enemies = new();
     public Dictionary<int, Asteroid> asteroids = new();
     public Dictionary<int, AmmoPickup> ammunition = new();
+    public Dictionary<int, Debris> debris = new();
 
     private void Awake()
     {
@@ -49,7 +48,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //Always reset the level when the scene starts running
-        //Restart();
+        Restart();
     }
 
     /// <summary>
@@ -61,12 +60,8 @@ public class GameManager : MonoBehaviour
         //TODO: Make screen fade out
         if (_win)
         {
-            //Player wins, exit program
-            #if UNITY_EDITOR
-                EditorApplication.ExitPlaymode();
-            #endif
-
-            Application.Quit();
+            StartCoroutine(WinRoutine());
+            Player.ReachPlanet();
         }
         else
         {
@@ -78,6 +73,7 @@ public class GameManager : MonoBehaviour
     {
         Collapse.ResetCollapse();
         Player.ResetPlayer();
+        planet.ResetPlanet();
         
         foreach (var item in asteroids)
         {
@@ -89,15 +85,36 @@ public class GameManager : MonoBehaviour
             item.Value.ResetEnemy();
         }
 
-        foreach (var item in ammunition)
+        for (int i = 0; i < ammunition.Count; i++)
         {
-            item.Value.ResetPickup();
+            var item = ammunition.ElementAt(i);
+            if (item.Value.ResetPickup())
+            {
+                ammunition.Remove(item.Key);
+                i--;
+            }
+        }
+
+        for (int i = 0; i < debris.Count; i++)
+        {
+            var item = debris.ElementAt(i);
+            if (item.Value.ResetDebris())
+            {
+                debris.Remove(item.Key);
+                i--;
+            }
         }
     }
 
     private IEnumerator RespawnRoutine()
     {
         yield return new WaitForSeconds(respawnDelay);
+        Restart();
+    }
+
+    private IEnumerator WinRoutine()
+    {
+        yield return new WaitForSeconds(respawnDelay * 2);
         Restart();
     }
 }

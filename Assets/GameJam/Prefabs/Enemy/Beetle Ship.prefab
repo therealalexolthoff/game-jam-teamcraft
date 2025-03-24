@@ -596,14 +596,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireBulletRate: 1.25
   spawnBulletDistance: -3
-  bulletVerticalForce: {x: 0, y: 0, z: 0}
   maxHealth: 3
   targetToFace: {fileID: 0}
   fireRange: 20
   rotationOffset: {x: -90, y: 180, z: 0}
   spawnBulletPosition: {fileID: 4562851846667401546}
   minPlayerDistance: 10
+  maxPlayerdistance: 15
+  followRange: 25
   speed: 5
+  fireSFX:
+  - {fileID: 8300000, guid: bcc854a5a134cd441ae0fc22b8b5e07c, type: 3}
+  - {fileID: 8300000, guid: a6cfa706c17a21549b320f5e8c5c4e4e, type: 3}
+  - {fileID: 8300000, guid: 506d6615a2d5d314a9c8973115b4ca13, type: 3}
 --- !u!114 &1970906367479378845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,6 +629,13 @@ MonoBehaviour:
   ammoSpawner: {fileID: 8582437666320003603}
   shouldDebrisSpawn: 1
   shouldAmmoSpawn: 1
+  damageSFX: {fileID: 8300000, guid: eea9fcaea566e2349ae11780e9940279, type: 3}
+  hitMaterial: {fileID: 2100000, guid: acdf05e46530fb441a98a17172d6d980, type: 2}
+  flashTime: 0.125
+  renderers:
+  - {fileID: 3368623398351953218}
+  - {fileID: 5149124016212503825}
+  - {fileID: 4359529534197053861}
 --- !u!136 &2595814429908048639
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -687,14 +699,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debrisPrefabs:
-  - {fileID: 1934710777301108202, guid: 87b7cae029b4b644198c19b18f821c00, type: 3}
-  - {fileID: 6746196791255650546, guid: a85291edf0e32e74981b0a44b46dd7c4, type: 3}
-  - {fileID: 5036775470659948065, guid: 4822acd48c6f9b147bae46198476d5fa, type: 3}
-  - {fileID: 6348372926629332830, guid: 88df8a40aeea46d4086ad117ebce8d65, type: 3}
-  - {fileID: 3482746019538688487, guid: 1b26350c1e49dc14eb956d22a19b91da, type: 3}
-  - {fileID: 1886419583205168705, guid: b10d05d05d1fbdf4a992f8fb12105981, type: 3}
-  - {fileID: 4409546461153676493, guid: 0812e163e02f21b49a9088a1be504fee, type: 3}
-  - {fileID: 5228859892709714651, guid: 281ef69dec9e56547b216aa260d419e5, type: 3}
+  - {fileID: 5436738738422210454, guid: 87b7cae029b4b644198c19b18f821c00, type: 3}
+  - {fileID: 6594332212453111600, guid: a85291edf0e32e74981b0a44b46dd7c4, type: 3}
+  - {fileID: 3863032415931980439, guid: 4822acd48c6f9b147bae46198476d5fa, type: 3}
+  - {fileID: 2126734650124725207, guid: 88df8a40aeea46d4086ad117ebce8d65, type: 3}
+  - {fileID: 3910004978747956628, guid: 1b26350c1e49dc14eb956d22a19b91da, type: 3}
+  - {fileID: -246381689872664880, guid: b10d05d05d1fbdf4a992f8fb12105981, type: 3}
+  - {fileID: 6275973888310280279, guid: 0812e163e02f21b49a9088a1be504fee, type: 3}
+  - {fileID: 9072097213715738912, guid: 281ef69dec9e56547b216aa260d419e5, type: 3}
 --- !u!114 &8582437666320003603
 MonoBehaviour:
   m_ObjectHideFlags: 0

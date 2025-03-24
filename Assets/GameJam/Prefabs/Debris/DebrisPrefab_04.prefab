@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7499096779152324603}
   - component: {fileID: 5797504114946753894}
   - component: {fileID: 657090115426934328}
-  m_Layer: 0
+  - component: {fileID: 2126734650124725207}
+  m_Layer: 7
   m_Name: DebrisPrefab_04
-  m_TagString: Asteroid
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +64,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6348372926629332830}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 3
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -82,6 +83,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 0
+--- !u!114 &2126734650124725207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6348372926629332830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350741ae6b0a3994890a157f6f4e8b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 657090115426934328}
+  sceneObject: 0
 --- !u!1001 &624943810732450995
 PrefabInstance:
   m_ObjectHideFlags: 0
