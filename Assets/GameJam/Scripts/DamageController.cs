@@ -12,6 +12,16 @@ public class DamageController : MonoBehaviour
     [Tooltip("Reference to DebrisSpawner Component")]
     [SerializeField] private DebrisSpawner debrisSpawner;
 
+    // Reference to AmmoSpawner
+    [Tooltip("Reference to AmmoSpawner Component")]
+    [SerializeField] private AmmoSpawner ammoSpawner;
+
+    [Tooltip("Set value to true if Debris should spawn when GameObject destroyed, false otherwise")]
+    [SerializeField] private bool shouldDebrisSpawn;
+
+    [Tooltip("Set value to true if Amo should spawn when GameObject destroyed, false otherwise")]
+    [SerializeField] private bool shouldAmmoSpawn;
+
     private int maxHealth;
     //private int currentHealth;
 
@@ -34,8 +44,16 @@ public class DamageController : MonoBehaviour
         if (maxHealth <= 0)
         {
             Debug.LogWarning(this.gameObject.name + " has died!");
+
+            // if the GameObject should spawn debris upon destruction
+            if (shouldDebrisSpawn)
+                debrisSpawner.SpawnRandomDebri();
+
+            // if the GameObject should spawn ammo upon destruction
+            if (shouldAmmoSpawn)
+                ammoSpawner.SpawnRandomAmmo();
+
             this.gameObject.SetActive(false);
-            debrisSpawner.SpawnRandomDebri();
             //Destroy(this.gameObject);
         }
     }

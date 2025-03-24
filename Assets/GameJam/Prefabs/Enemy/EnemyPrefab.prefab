@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1958850788195687549}
   - component: {fileID: 3120662740825497625}
   - component: {fileID: 1563840900987790917}
+  - component: {fileID: 2257187611226444372}
+  - component: {fileID: 837673353488308366}
   m_Layer: 0
   m_Name: EnemyPrefab
   m_TagString: Enemy
@@ -89,6 +91,10 @@ MonoBehaviour:
   collidableTags:
   - Player
   - Asteroid
+  debrisSpawner: {fileID: 2257187611226444372}
+  ammoSpawner: {fileID: 837673353488308366}
+  shouldDebrisSpawn: 1
+  shouldAmmoSpawn: 1
 --- !u!136 &3120662740825497625
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -139,6 +145,44 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 56
   m_CollisionDetection: 0
+--- !u!114 &2257187611226444372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321508348492213185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58d67169d71786449046040e33df28f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debrisPrefabs:
+  - {fileID: 1934710777301108202, guid: 87b7cae029b4b644198c19b18f821c00, type: 3}
+  - {fileID: 6746196791255650546, guid: a85291edf0e32e74981b0a44b46dd7c4, type: 3}
+  - {fileID: 5036775470659948065, guid: 4822acd48c6f9b147bae46198476d5fa, type: 3}
+  - {fileID: 6348372926629332830, guid: 88df8a40aeea46d4086ad117ebce8d65, type: 3}
+  - {fileID: 3482746019538688487, guid: 1b26350c1e49dc14eb956d22a19b91da, type: 3}
+  - {fileID: 1886419583205168705, guid: b10d05d05d1fbdf4a992f8fb12105981, type: 3}
+  - {fileID: 4409546461153676493, guid: 0812e163e02f21b49a9088a1be504fee, type: 3}
+  - {fileID: 5228859892709714651, guid: 281ef69dec9e56547b216aa260d419e5, type: 3}
+--- !u!114 &837673353488308366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321508348492213185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef9c540adb0430142a23879d7a92b448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammoPrefabs:
+  - {fileID: 3229434442377493660, guid: c01a053aa0c7a8b46ac0f7679da48cf8, type: 3}
+  - {fileID: 7128691930898130416, guid: e986ecd32b85f2445a803687464ebcf0, type: 3}
+  - {fileID: 5057104261035568235, guid: f1d9c09506a98be42bab1e0063d4a1f8, type: 3}
+  - {fileID: 6660898700912438334, guid: 50fd1abb88dbcc949843fb478461af80, type: 3}
 --- !u!1 &2739430060262195059
 GameObject:
   m_ObjectHideFlags: 0

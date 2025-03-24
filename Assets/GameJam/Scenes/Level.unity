@@ -11409,44 +11409,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1227112996068216635, guid: 57bcdc73cf9163d4183635dd7ce2e126, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 1227112996068216635, guid: 57bcdc73cf9163d4183635dd7ce2e126, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 1227112996068216635, guid: 57bcdc73cf9163d4183635dd7ce2e126, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 1227112996068216635, guid: 57bcdc73cf9163d4183635dd7ce2e126, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1227112996068216635, guid: 57bcdc73cf9163d4183635dd7ce2e126, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.143
-      objectReference: {fileID: 0}
-    - target: {fileID: 1227112996068216635, guid: 57bcdc73cf9163d4183635dd7ce2e126, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0
-      objectReference: {fileID: 0}
     - target: {fileID: 1321508348492213185, guid: 57bcdc73cf9163d4183635dd7ce2e126, type: 3}
       propertyPath: m_Name
       value: EnemyPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 1958850788195687549, guid: 57bcdc73cf9163d4183635dd7ce2e126, type: 3}
-      propertyPath: maxHealth
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1958850788195687549, guid: 57bcdc73cf9163d4183635dd7ce2e126, type: 3}
-      propertyPath: debrisSpawner
+      propertyPath: ammoSpawner
       value: 
-      objectReference: {fileID: 1086080268}
-    - target: {fileID: 3120662740825497625, guid: 57bcdc73cf9163d4183635dd7ce2e126, type: 3}
-      propertyPath: m_Enabled
+      objectReference: {fileID: 1086080275}
+    - target: {fileID: 1958850788195687549, guid: 57bcdc73cf9163d4183635dd7ce2e126, type: 3}
+      propertyPath: shouldAmmoSpawn
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5798043361569600058, guid: 57bcdc73cf9163d4183635dd7ce2e126, type: 3}
@@ -11490,14 +11462,6 @@ PrefabInstance:
       value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 8249632731190881162, guid: 57bcdc73cf9163d4183635dd7ce2e126, type: 3}
-      propertyPath: speed
-      value: 17.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8249632731190881162, guid: 57bcdc73cf9163d4183635dd7ce2e126, type: 3}
-      propertyPath: maxHealth
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8249632731190881162, guid: 57bcdc73cf9163d4183635dd7ce2e126, type: 3}
       propertyPath: targetToFace
       value: 
       objectReference: {fileID: 16594070}
@@ -11507,14 +11471,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1321508348492213185, guid: 57bcdc73cf9163d4183635dd7ce2e126, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1086080268}
+      addedObject: {fileID: 1086080275}
   m_SourcePrefab: {fileID: 100100000, guid: 57bcdc73cf9163d4183635dd7ce2e126, type: 3}
 --- !u!1 &1086080267 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1321508348492213185, guid: 57bcdc73cf9163d4183635dd7ce2e126, type: 3}
   m_PrefabInstance: {fileID: 1086080266}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1086080268
+--- !u!114 &1086080275
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11523,18 +11487,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1086080267}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c58d67169d71786449046040e33df28f, type: 3}
+  m_Script: {fileID: 11500000, guid: ef9c540adb0430142a23879d7a92b448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debrisPrefabs:
-  - {fileID: 1934710777301108202, guid: 87b7cae029b4b644198c19b18f821c00, type: 3}
-  - {fileID: 6746196791255650546, guid: a85291edf0e32e74981b0a44b46dd7c4, type: 3}
-  - {fileID: 5036775470659948065, guid: 4822acd48c6f9b147bae46198476d5fa, type: 3}
-  - {fileID: 6348372926629332830, guid: 88df8a40aeea46d4086ad117ebce8d65, type: 3}
-  - {fileID: 3482746019538688487, guid: 1b26350c1e49dc14eb956d22a19b91da, type: 3}
-  - {fileID: 1886419583205168705, guid: b10d05d05d1fbdf4a992f8fb12105981, type: 3}
-  - {fileID: 4409546461153676493, guid: 0812e163e02f21b49a9088a1be504fee, type: 3}
-  - {fileID: 5228859892709714651, guid: 281ef69dec9e56547b216aa260d419e5, type: 3}
+  ammoPrefabs:
+  - {fileID: 3229434442377493660, guid: c01a053aa0c7a8b46ac0f7679da48cf8, type: 3}
+  - {fileID: 7128691930898130416, guid: e986ecd32b85f2445a803687464ebcf0, type: 3}
+  - {fileID: 5057104261035568235, guid: f1d9c09506a98be42bab1e0063d4a1f8, type: 3}
+  - {fileID: 6660898700912438334, guid: 50fd1abb88dbcc949843fb478461af80, type: 3}
 --- !u!1 &1165152244
 GameObject:
   m_ObjectHideFlags: 0
