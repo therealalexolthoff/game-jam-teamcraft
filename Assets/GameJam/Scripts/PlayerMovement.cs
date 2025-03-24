@@ -14,9 +14,6 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("The position to spawn the Bullet Prefab")]
     [SerializeField] private Transform spawnBulletPosition;
 
-    [Tooltip("The force to apply on the y-axis to the Bullet Prefab")]
-    [SerializeField] private float bulletVerticalForce = 25.0f;
-
     [Tooltip("Maximum health of GameObject")]
     [SerializeField] private int maxHealth = 50;
 
@@ -52,7 +49,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void OnEnable()
+    {
+        damageController.OnDamaged += UpdateHealth;
+    }
+
+    private void OnDisable()
+    {
+        damageController.OnDamaged -= UpdateHealth;
+    }
+
+    private void Awake()
     {
         // Get references to script components ShootComponent and DamageController
         shootComponent = GetComponent<ShootComponent>();
@@ -118,9 +125,21 @@ public class PlayerMovement : MonoBehaviour
         Ammunition += amt;
     }
 
+    private void UpdateHealth(int _health)
+    {
+        HUD.UpdateHealthText(_health);
+        if (_health <= 0)
+        {
+            GameManager.Instance.EndLevel(false);
+            HUD.SetMessageText("You Lost!");
+        }
+    }
+
     public void ResetPlayer()
     {
         transform.position = Vector3.zero;
         rb.linearVelocity = Vector2.zero;
+        damageController.SetMaxHealth(maxHealth);
+        gameObject.SetActive(true);
     }
 }

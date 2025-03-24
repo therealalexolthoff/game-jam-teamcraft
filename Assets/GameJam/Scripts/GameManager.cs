@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
+
 
 #if UNITY_EDITOR
-    using UnityEditor;
+using UnityEditor;
 #endif
 
 public class GameManager : MonoBehaviour
@@ -27,12 +29,16 @@ public class GameManager : MonoBehaviour
     [Tooltip("The length of the level from the start to the end location.")]
     [SerializeField] private int levelSize = 350;
 
+    [Tooltip("Delay before respawning.")]
+    [SerializeField] private float respawnDelay = 1.25f;
+
     //Public
     public int LevelSize => levelSize;
     public PlayerMovement Player { get; set; }
     public Collapse Collapse { get; set; }
-    //Add in later once enemies are implemented
-    //public Dictionary<int, EnemyClass> enemyList = new();
+    public Dictionary<int, EnemyController> enemies = new();
+    public Dictionary<int, Asteroid> asteroids = new();
+    public Dictionary<int, AmmoPickup> ammunition = new();
 
     private void Awake()
     {
@@ -43,7 +49,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //Always reset the level when the scene starts running
-        Restart();
+        //Restart();
     }
 
     /// <summary>
@@ -64,7 +70,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Restart();
+            StartCoroutine(RespawnRoutine());
         }
     }
 
@@ -72,8 +78,26 @@ public class GameManager : MonoBehaviour
     {
         Collapse.ResetCollapse();
         Player.ResetPlayer();
-        //TODO: reset player health
-        //TODO: reset enemies and obstacles
-        //TODO: (if using resources) reset resources
+        
+        foreach (var item in asteroids)
+        {
+            item.Value.ResetAsteroid();
+        }
+
+        foreach (var item in enemies)
+        {
+            item.Value.ResetEnemy();
+        }
+
+        foreach (var item in ammunition)
+        {
+            item.Value.ResetPickup();
+        }
+    }
+
+    private IEnumerator RespawnRoutine()
+    {
+        yield return new WaitForSeconds(respawnDelay);
+        Restart();
     }
 }

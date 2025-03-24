@@ -10,8 +10,13 @@ public class Asteroid : MonoBehaviour
     [SerializeField] private float maxSpeed = 4f;
     [SerializeField] private Rigidbody rb;
 
-    private void Start()
+    //Private
+    private Vector3 initialPos;
+
+    private void Awake()
     {
+        initialPos = transform.position;
+        GameManager.Instance.asteroids[GetInstanceID()] = this;
         Init();
     }
 
@@ -20,13 +25,15 @@ public class Asteroid : MonoBehaviour
     /// </summary>
     public void Init()
     {
-        //Create 3 directions of random rotation with positive or negative direction
-        float xRot = Random.Range(minSpeed, maxSpeed) * Random.Range(0, 2) * 2 - 1;
-        float yRot = Random.Range(minSpeed, maxSpeed) * Random.Range(0, 2) * 2 - 1;
-        float zRot = Random.Range(minSpeed, maxSpeed) * Random.Range(0, 2) * 2 - 1;
-
         //Add rotational force
         transform.rotation = Random.rotation;
         rb.AddTorque(Random.rotation.eulerAngles * Random.Range(minSpeed, maxSpeed));
+    }
+
+    public void ResetAsteroid()
+    {
+        transform.position = initialPos;
+        rb.linearVelocity = Vector3.zero;
+        Init();
     }
 }

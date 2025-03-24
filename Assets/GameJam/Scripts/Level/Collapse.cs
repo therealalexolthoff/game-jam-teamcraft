@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class Collapse : MonoBehaviour
@@ -32,6 +31,7 @@ public class Collapse : MonoBehaviour
         {
             //End the level in a loss if the player touches the collapse
             Debug.Log("You Lose!");
+            other.gameObject.SetActive(false);
             GameManager.Instance.EndLevel(false);
         }
         else if (other.CompareTag("Enemy"))

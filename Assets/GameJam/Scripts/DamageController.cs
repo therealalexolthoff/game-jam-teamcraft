@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,36 +26,32 @@ public class DamageController : MonoBehaviour
     private int maxHealth;
     //private int currentHealth;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Start()
-    {
-        //currentHealth = maxHealth;
-        //Debug.LogWarning(currentHealth);
-    }
+    //Public
+    public event Action<int> OnDamaged;
 
     private void OnCollisionEnter(Collision collision)
     {
         //If the object should not take damage from this collision, return
-        if (collidableTags.Contains(collision.transform.tag))
+        if (!collidableTags.Contains(collision.transform.tag))
             return;
 
-        Debug.LogWarning(this.gameObject.name + " has taken damage from " + collision.gameObject.name);
+        //Debug.LogWarning(gameObject.name + " has taken damage from " + collision.gameObject.name);
         maxHealth--;
+        OnDamaged?.Invoke(maxHealth);
 
         if (maxHealth <= 0)
         {
-            Debug.LogWarning(this.gameObject.name + " has died!");
+            Debug.LogWarning(gameObject.name + " has died!");
 
             // if the GameObject should spawn debris upon destruction
             if (shouldDebrisSpawn)
-                debrisSpawner.SpawnRandomDebri();
+                debrisSpawner.SpawnRandomDebris();
 
             // if the GameObject should spawn ammo upon destruction
             if (shouldAmmoSpawn)
                 ammoSpawner.SpawnRandomAmmo();
 
-            this.gameObject.SetActive(false);
-            //Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }
     }
 

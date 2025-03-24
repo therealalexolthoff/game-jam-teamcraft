@@ -10,6 +10,11 @@ public class AmmoPickup : MonoBehaviour
     [Tooltip("Sound effects played on pickup.")]
     [SerializeField] private List<AudioClip> pickupSFX;
 
+    private void Awake()
+    {
+        GameManager.Instance.ammunition[GetInstanceID()] = this;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -19,7 +24,12 @@ public class AmmoPickup : MonoBehaviour
             {
                 //TODO: Play audio clip
             }
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
+    }
+
+    public void ResetPickup()
+    {
+        gameObject.SetActive(true);
     }
 }

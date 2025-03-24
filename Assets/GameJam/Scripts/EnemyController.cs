@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    //Inspector
     [Tooltip("The rate at which Enemy shoots a bullet in seconds")]
     [SerializeField] private float fireBulletRate = 0.5f;
     private float internalFireBulletRate = 0.0f;
@@ -18,6 +19,9 @@ public class EnemyController : MonoBehaviour
     [Tooltip("Reference to target to face")]
     [SerializeField] private Transform targetToFace;
 
+    [Tooltip("The maximum distance at which an enemy will shoot.")]
+    [SerializeField] private float fireRange = 25;
+
     [Tooltip("Rotation offset to fix Enemy's rotation when facing Player")]
     [SerializeField] private Vector3 rotationOffset;
 
@@ -30,21 +34,25 @@ public class EnemyController : MonoBehaviour
     [Tooltip("Speed at which the enemy backs up from the player.")]
     [SerializeField] private float speed = 7.5f;
 
+    //Private
+    private Vector3 initialPos;
+
     //Component cache
     private Rigidbody rb;
     private ShootComponent shootComponent;
     private DamageController damageController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         shootComponent = GetComponent<ShootComponent>();
         damageController = GetComponent<DamageController>();
         rb = GetComponent<Rigidbody>();
 
         shootComponent.spawnBulletDistance = spawnBulletDistance;
-        //damageController.maxHealth = maxHealth;
         damageController.SetMaxHealth(maxHealth);
+
+        GameManager.Instance.enemies[GetInstanceID()] = this;
     }
 
     // Update is called once per frame
@@ -60,7 +68,8 @@ public class EnemyController : MonoBehaviour
 
         transform.rotation = correctedRotation;
 
-        if (Time.time > internalFireBulletRate)
+        //Fire if the player is in range and the time is okay
+        if (Time.time > internalFireBulletRate && Vector2.Distance(transform.position, targetToFace.position) <= fireRange)
         {
             internalFireBulletRate = Time.time + fireBulletRate;
             shootComponent.SpawnBulletPrefab(spawnBulletPosition.position, direction);
@@ -71,5 +80,13 @@ public class EnemyController : MonoBehaviour
             rb.AddForce(-1 * speed * direction);
         else
             rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, Vector3.zero, Time.deltaTime);
+    }
+
+    public void ResetEnemy()
+    {
+        transform.position = initialPos;
+        damageController.SetMaxHealth(maxHealth);
+        gameObject.SetActive(true);
+        rb.linearVelocity = Vector3.zero;
     }
 }

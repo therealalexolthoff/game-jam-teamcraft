@@ -253,7 +253,6 @@ MonoBehaviour:
   playerSpeed: 10
   acceleration: 100
   spawnBulletPosition: {fileID: 2760395769769700137}
-  bulletVerticalForce: 25
   maxHealth: 50
   startingAmmunition: 30
   turret: {fileID: 6894171961549806918}
@@ -288,8 +287,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collidableTags:
   - Asteroid
-  - Boundary
-  maxHealth: 50
+  - Bullet
+  - Enemy
+  debrisSpawner: {fileID: 0}
+  ammoSpawner: {fileID: 0}
+  shouldDebrisSpawn: 0
+  shouldAmmoSpawn: 0
 --- !u!136 &5697402900176831689
 CapsuleCollider:
   m_ObjectHideFlags: 0
