@@ -36,8 +36,8 @@ In **Escape the Collapse**, you play as space ship pilot desparate to escape his
 
 ## Credits
 
-- Product Manager: [Name]
--  Game Designers: development by [Yazmyn, ]  
-- Game Engineers: [Name]
-- 3D Artist: [Name]
-- Sound [Source]
+- Project Manager: [Alex]
+- Game Designers: development by [Yazmyn, Chris, Grayson]  
+- Game Engineers: [Grayson, Ivan]
+- 3D Artist: [Raidin]
+- Sound [Raidin]
